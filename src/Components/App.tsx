@@ -7,14 +7,18 @@ import {fetchAllPoke} from '../ApiCalls/apiCalls.tsx'
 import GenerationContainer from '../Components/GenerationsContainer.tsx';
 
 
-type pokemon = {pokemon: []}
+type state = {
+  pokemon: Array <{}>,
+  error: string
+}
 
-class App extends React.Component <pokemon, {}> {
-  state = {pokemon: []}
+class App extends React.Component <state, {}> {
+  state = {pokemon: [], error: ''}
 
   componentDidMount = () => {
     fetchAllPoke()
-    .then(data => this.setState({pokemon: data}))
+    .then(data => this.setState({pokemon: data.results}))
+    .catch(error => this.setState({error: error}))
   }
 
   render() {
