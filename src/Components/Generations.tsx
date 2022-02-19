@@ -2,7 +2,7 @@ import React from 'react';
 import '../CSS/Generations.css';
 
 const Generations = ({pokeInfo}) => {
-  console.log(pokeInfo)
+  console.log('Generations component prop---', pokeInfo)
 
   return (
     <> 

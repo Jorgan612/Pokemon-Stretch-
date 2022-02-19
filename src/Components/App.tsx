@@ -5,6 +5,7 @@ import React from 'react';
 import Nav from './Nav.tsx';
 import {fetchAllPoke} from '../ApiCalls/apiCalls.tsx'
 import GenerationContainer from '../Components/GenerationsContainer.tsx';
+import PokeContainer from '../Components/PokeContainer.tsx'
 
 
 type state = {
@@ -25,7 +26,7 @@ class App extends React.Component <state, {}> {
     return (
       <div className="App">
         <h1>Hello, World!</h1>
-        <GenerationContainer pokeInfo={this.state.pokemon}/>
+        <PokeContainer pokeInfo={this.state.pokemon}/>
         
       </div>
     );
