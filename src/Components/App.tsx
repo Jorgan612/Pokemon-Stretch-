@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import '../CSS/App.css';
 import React from 'react';
@@ -19,8 +20,8 @@ class App extends React.Component <pokemon, {}> {
   render() {
     return (
       <div className="App">
-        
         <h1>Hello, World!</h1>
+        <Generations pokeInfo={this.state.pokemon}/>
       </div>
     );
   }
