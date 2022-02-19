@@ -3,8 +3,8 @@
 import '../CSS/App.css';
 import React from 'react';
 import Nav from './Nav.tsx';
-import Generations from './Generations.tsx';
 import {fetchAllPoke} from '../ApiCalls/apiCalls.tsx'
+import GenerationContainer from '../Components/GenerationsContainer.tsx';
 
 
 type pokemon = {pokemon: []}
@@ -21,7 +21,8 @@ class App extends React.Component <pokemon, {}> {
     return (
       <div className="App">
         <h1>Hello, World!</h1>
-        <Generations pokeInfo={this.state.pokemon}/>
+        <GenerationContainer pokeInfo={this.state.pokemon}/>
+        
       </div>
     );
   }
