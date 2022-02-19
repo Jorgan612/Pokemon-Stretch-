@@ -3,26 +3,42 @@ import Generations from "./Generations.tsx";
 
 
 const GenerationContainer = ({pokeInfo}) => {
+    console.log('pokeInfo prop in genContainer====', pokeInfo)
     let genOne;
+    let genTwo;
+    let genThree;
+    let genFour;
+    let genFive;
+    let genSix;
+    let genSeven;
+    let genEight;
 
     setTimeout(() => {
-        genOne = pokeInfo.results.filter((pokemon,index) => index > 0 && index < 152)
+        genOne = pokeInfo.results.filter((pokemon, index) => index > 0 && index < 151)
+        genTwo = pokeInfo.results.filter((pokemon, index) => index > 151 && index < 251 )
+        genThree = pokeInfo.results.filter((pokemon, index) => index > 251 && index < 386 )
+        genFour = pokeInfo.results.filter((pokemon, index) => index > 386 && index < 493 )
+        genFive = pokeInfo.results.filter((pokemon, index) => index > 493 && index < 649 )
+        genSix = pokeInfo.results.filter((pokemon, index) => index > 649 && index < 721 )
+        genSeven = pokeInfo.results.filter((pokemon, index) => index > 721 && index < 809 )
+        genEight = pokeInfo.results.filter((pokemon, index) => index > 809 && index < 905 )
+      }, 2000)
 
-      },2000)
+    const genArray = [genOne, genTwo, genThree, genFour, genFive, genSix, genSeven, genEight]
     
-      
-      // const genTwo;
-      // const genThree;
-      // const genFour;
-      // const genFive;
-      // const genSix;
-      // const genSeven;
-      // const genEight;
+    const genList = genArray.map((gen, index) => {
+        return(
+            <Generations 
+                pokeInfo={gen}
+                key={index}
+            />
+        )
+    })
+   
     return (
-        <>
-        <Generations pokeInfo={genOne}/>
-        
-        </>
+       <section className="gen-container">
+           {genList}
+       </section>
     )
 }
 

@@ -5,23 +5,28 @@ import React from 'react';
 import Nav from './Nav.tsx';
 import {fetchAllPoke} from '../ApiCalls/apiCalls.tsx'
 import GenerationContainer from '../Components/GenerationsContainer.tsx';
+import PokeContainer from '../Components/PokeContainer.tsx'
 
 
-type pokemon = {pokemon: []}
+type state = {
+  pokemon: Array <{}>,
+  error: string
+}
 
-class App extends React.Component <pokemon, {}> {
-  state = {pokemon: []}
+class App extends React.Component <state, {}> {
+  state = {pokemon: [], error: ''}
 
   componentDidMount = () => {
     fetchAllPoke()
-    .then(data => this.setState({pokemon: data}))
+    .then(data => this.setState({pokemon: data.results}))
+    .catch(error => this.setState({error: error}))
   }
 
   render() {
     return (
       <div className="App">
         <h1>Hello, World!</h1>
-        <GenerationContainer pokeInfo={this.state.pokemon}/>
+        <PokeContainer pokeInfo={this.state.pokemon}/>
         
       </div>
     );
