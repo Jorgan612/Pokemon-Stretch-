@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import '../CSS/App.css';
 import React from 'react';
 import Nav from './Nav.tsx';
 import {fetchAllPoke} from '../ApiCalls/apiCalls.tsx'
 import GenerationContainer from '../Components/GenerationsContainer.tsx';
 import PokeContainer from '../Components/PokeContainer.tsx'
-
+import {Routes, Route} from 'react-router-dom'
 
 type state = {
   pokemon: Array <{}>,
@@ -26,8 +24,9 @@ class App extends React.Component <state, {}> {
     return (
       <div className="App">
         <h1>Hello, World!</h1>
-        <PokeContainer pokeInfo={this.state.pokemon}/>
-        
+        <Routes>
+          <Route path='/' element={<PokeContainer pokeInfo={this.state.pokemon} />}/>
+        </Routes>
       </div>
     );
   }
