@@ -27,7 +27,6 @@ class App extends React.Component <state, {}> {
       <div className="App">
         <h1>Hello, World!</h1>
         <PokeContainer pokeInfo={this.state.pokemon}/>
-        
       </div>
     );
   }
