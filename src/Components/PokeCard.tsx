@@ -3,19 +3,14 @@ import '../CSS/PokeCard.css'
 import PokeDetails from './PokeDetails.tsx'
 
 
-const PokeCard = ({name, id}) => {
-  id = id +1
-  let state = {
-    name: ''
-  }
-  
+//do we need type also?
 
+const PokeCard = ({name, sprite, id}) => {
   
  return(
    <div>
-     <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} />
+     <img src={sprite} alt='pokemon character'/>
      <h1>{name}</h1>
-     <PokeDetails />
    </div>
  )
 }
