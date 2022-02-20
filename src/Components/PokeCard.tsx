@@ -7,7 +7,6 @@ const PokeCard = ({name, id}) => {
   id = id +1
   let state = {
     name: ''
-
   }
   
 

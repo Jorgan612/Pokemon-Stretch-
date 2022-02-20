@@ -2,8 +2,11 @@ import React from 'react'
 import '../CSS/PokeContainer.css'
 import PokeCard from './PokeCard.tsx'
 
+interface pokeInfo {
+  pokeInfo: Array<{}>
+}
 
-const PokeContainer = ({pokeInfo}) => {
+const PokeContainer: React.FC<pokeInfo> = ({pokeInfo}) => {
   const pokeList = pokeInfo.map((pokemon, index) => {
   if(index < 151){
     return(

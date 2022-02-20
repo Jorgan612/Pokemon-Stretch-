@@ -1,15 +1,6 @@
 import React from "react"
 import {fetchOnePoke} from '../ApiCalls/apiCalls.tsx'
 
-
-// const fetchOnePoke = () => {
-//     return fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-//     .then(response => response.json())
-//     .then(data => console.log(data))};
-
-//     fetchOnePoke()
-//     console.log(fetchOnePoke())
-
 type state = {
     name: string ,
     height: number,
@@ -28,11 +19,11 @@ class PokeDetails extends React.Component <{}> {
              image: ''
             }
 
-    componentDidMount = () => {
+    // componentDidMount = () => {
        
-            fetchOnePoke()
-            console.log(fetchOnePoke())
-    }
+    //         fetchOnePoke()
+    //         console.log(fetchOnePoke())
+    // }
 
     render() {
         return(
