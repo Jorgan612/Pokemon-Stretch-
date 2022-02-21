@@ -1,6 +1,6 @@
 .poke-details {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   background-color: red;
   border-radius: 20px;
@@ -35,33 +35,40 @@ ul {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  cursor: pointer;
 }
 
 .home {
   border-radius: 50%;
   height: 90px;
   background-color: #6887D9;
-  border: 1px solid #6887D9;
+  border: none;
   font-size: 20px;
+  box-shadow: 3px 3px #4f0202;
+  cursor: pointer;
 }
 
 .favorite {
   width: 50%;
   height: 70%;
   font-size: 20px;
+  border-radius: 35px;
+  background-color: #F6CF57;
+  box-shadow: 3px 3px #4f0202;
+  border: none;
+  cursor: pointer;
 }
 
 .home:hover,
 .favorite:hover {
   transition: .2s;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .details-sprite {
-  margin-top: 20px;
+  margin: 20px;
   background-color: white;
   border: 5px solid grey;
+  border-radius: 35px;
 }
 
 .name {
@@ -70,4 +77,23 @@ ul {
   justify-content: center;
   background-color: white;
   height: 20%;
+  margin: 20px;
+  border-radius: 35px;
+}
+
+.poke-stats {
+  background-color: white;
+  border-radius: 35px;
+  width: 100%;
+  height: 100%;
+}
+
+.poke-stats-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: darkred;
+  width: 35%;
+  height: 85%;
+  border: 20px solid darkred;
 }

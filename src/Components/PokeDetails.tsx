@@ -77,24 +77,26 @@ class PokeDetails extends React.Component <MyState, {props}> {
           <h1 className='name'>{this.capitalizeName(pokemon.name)}</h1>
         </div>
         <div className='center-detail'></div>
-        <div className='poke-stats'>
-          <p className='height'>Height: {pokemon.height} units</p>
-          <p className='weight'>Weight: {pokemon.weight} units</p>
-          <div className='types'>
-            <ul>Types:
-              <div className='type'>{this.displayProperties('types', 'type')}</div>
-            </ul>
+        <div className='poke-stats-style'>
+          <div className='poke-stats'>
+            <p className='height'>Height: {pokemon.height} units</p>
+            <p className='weight'>Weight: {pokemon.weight} units</p>
+            <div className='types'>
+              <ul>Types:
+                <div className='type'>{this.displayProperties('types', 'type')}</div>
+              </ul>
+            </div>
+            <div className='abilities'>
+              <ul>Abilities: 
+                <div className='ability'>{this.displayProperties('abilities', 'ability')}</div>
+              </ul>
+            </div>
+            <label className='moves'>Moves:
+              <select name='moves' className='tags-drop-down'>
+                {this.displayProperties('moves', 'move')}
+              </select>
+            </label>
           </div>
-          <div className='abilities'>
-            <ul>Abilities: 
-              <div className='ability'>{this.displayProperties('abilities', 'ability')}</div>
-            </ul>
-          </div>
-          <label className='moves'>Moves:
-            <select name='moves' className='tags-drop-down'>
-              {this.displayProperties('moves', 'move')}
-            </select>
-          </label>
         </div>
       </section>
     )
