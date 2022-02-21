@@ -11,13 +11,14 @@ type state = {
 }
 
 class PokeDetails extends React.Component <{}> {
-    state = {name: '',
-             height: 0,
-             weight: 0,
-             types: [],
-             abilities: [],
-             image: ''
-            }
+  state = {
+    name: '',
+    height: 0,
+    weight: 0,
+    types: [],
+    abilities: [],
+    image: ''
+  }
 
     // componentDidMount = () => {
        
@@ -25,13 +26,13 @@ class PokeDetails extends React.Component <{}> {
     //         console.log(fetchOnePoke())
     // }
 
-    render() {
-        return(
-            <>
-            <h1>Hello World!</h1>
-            </>
-        )
-    }
+  render() {
+    return(
+      <section className='poke-details'>
+        <h1>Hello World!</h1>
+      </section>
+    )
+  }
 }
 
 export default PokeDetails

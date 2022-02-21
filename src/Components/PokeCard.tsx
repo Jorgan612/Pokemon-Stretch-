@@ -8,10 +8,10 @@ import PokeDetails from './PokeDetails.tsx'
 const PokeCard = ({name, sprite, id}) => {
   
  return(
-   <div>
+   <section className='poke-card'>
      <img src={sprite} alt='pokemon character'/>
      <h1>{name}</h1>
-   </div>
+   </section>
  )
 }
 
