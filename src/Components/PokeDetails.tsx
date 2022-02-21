@@ -2,14 +2,19 @@ import '../CSS/PokeDetails.css'
 import React from "react"
 import {fetchOnePoke} from '../ApiCalls/apiCalls.tsx'
 
+type ability = {
+  name: string
+  url: string
+}
+
 type pokemon = {
-  name: string,
-  height: number,
-  weight: number,
-  types: Array<{}>,
-  abilities: Array<{}>,
-  moves: Array<{}>,
-  sprites: {},
+  name: string
+  height: number
+  weight: number
+  types: Array<{}>
+  abilities: Array<ability>
+  moves: Array<{}>
+  sprites: {}
   stats: Array<{}>
 }
 
