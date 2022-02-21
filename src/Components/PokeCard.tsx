@@ -1,17 +1,16 @@
-import React from 'react'
-import '../CSS/PokeCard.css'
-import PokeDetails from './PokeDetails.tsx'
-
+import React from 'react';
+import '../CSS/PokeCard.css';
+import { Link } from 'react-router-dom';
 
 //do we need type also?
 
 const PokeCard = ({name, sprite, id}) => {
   
  return(
-   <section className='poke-card'>
+   <Link to={`${id}`} className='poke-card' >
      <img src={sprite} alt='pokemon character'/>
      <h1>{name}</h1>
-   </section>
+   </Link>
  )
 }
 
