@@ -1,10 +1,20 @@
 import '../CSS/PokeDetails.css'
 import React from "react"
 import {fetchOnePoke} from '../ApiCalls/apiCalls.tsx'
+import { type } from 'os'
 
 type ability = {
   name: string
   url: string
+}
+
+type move = {
+  name: string
+  url: string
+}
+
+type front_default = {
+  front_default: string
 }
 
 type pokemon = {
@@ -14,7 +24,7 @@ type pokemon = {
   types: Array<{}>
   abilities: Array<ability>
   moves: Array<{}>
-  sprites: {}
+  sprites: front_default
   stats: Array<{}>
 }
 
@@ -35,27 +45,57 @@ class PokeDetails extends React.Component <MyState, {props}> {
       .catch(err => this.setState({error: err}))
   }
 
-  displayAbilities = () => {
-    setTimeout(() => {
-      return this.state.pokemon.abilities.map((property, index) => {
-        return <li key={index}>{property.ability.name}</li>
+  displayProperties = (propertyOne, propertyTwo) => {
+    if(this.state.pokemon[propertyOne] && propertyOne !== 'moves') {
+      return this.state.pokemon[propertyOne].map((property, index) => {
+        return <li key={index}>{property[propertyTwo].name}</li>
       })
-    }, 2000)
+    }else if(this.state.pokemon[propertyOne]) {
+      return this.state.pokemon[propertyOne].map((property, index) => {
+        return <option value={property[propertyTwo].name} key={index}>{property[propertyTwo].name}</option>
+      })
+    }
+  }
+
+  capitalizeName = (string) => {
+    if(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
   }
   
   render() {
     const pokemon = this.state.pokemon;
-    // console.log('render', pokemon.abilities)
 
     return(
       <section className='poke-details'>
-        <h1>{pokemon.name}</h1>
-        <p className='height'>Height: {pokemon.height} units</p>
-        <p className='weight'>Weight: {pokemon.weight} units</p>
-        <ul>Abilities: 
-          <div className='abilities'>{this.displayAbilities()}</div>
-        </ul>
-        {/* <img src={pokemon.sprites.front_default} alt={`${pokemon.name} sprite`}/> */}
+        <div className='name-sprite'>
+          <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokemon.id]}.png`} alt={`${pokemon.name} sprite`} className='details-sprite'/>
+          <div className='buttons'>
+            <button className='home'>Go Back</button>
+            <button className='favorite'>Favorite</button>
+          </div>
+          <h1 className='name'>{this.capitalizeName(pokemon.name)}</h1>
+        </div>
+        <div className='center-detail'></div>
+        <div className='poke-stats'>
+          <p className='height'>Height: {pokemon.height} units</p>
+          <p className='weight'>Weight: {pokemon.weight} units</p>
+          <div className='types'>
+            <ul>Types:
+              <div className='type'>{this.displayProperties('types', 'type')}</div>
+            </ul>
+          </div>
+          <div className='abilities'>
+            <ul>Abilities: 
+              <div className='ability'>{this.displayProperties('abilities', 'ability')}</div>
+            </ul>
+          </div>
+          <label className='moves'>Moves:
+            <select name='moves' className='tags-drop-down'>
+              {this.displayProperties('moves', 'move')}
+            </select>
+          </label>
+        </div>
       </section>
     )
   }

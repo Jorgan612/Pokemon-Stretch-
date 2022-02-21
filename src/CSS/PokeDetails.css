@@ -1,4 +1,73 @@
 .poke-details {
-  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: red;
+  border-radius: 20px;
   width: 50%;
+  height: 80vh;
+}
+
+ul {
+  list-style: none;
+  font-weight: bolder;
+}
+
+.abilities {
+  display: flex;
+  justify-content: center;
+}
+
+.ability {
+  font-weight: lighter;
+}
+
+.name-sprite {
+  background-color: darkred;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+  height: 90%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+
+.home {
+  border-radius: 50%;
+  height: 90px;
+  background-color: #6887D9;
+  border: 1px solid #6887D9;
+  font-size: 20px;
+}
+
+.favorite {
+  width: 50%;
+  height: 70%;
+  font-size: 20px;
+}
+
+.home:hover,
+.favorite:hover {
+  transition: .2s;
+  transform: scale(1.2);
+}
+
+.details-sprite {
+  margin-top: 20px;
+  background-color: white;
+  border: 5px solid grey;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 20%;
 }
