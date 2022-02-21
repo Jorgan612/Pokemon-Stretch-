@@ -17,7 +17,7 @@ const PokeContainer: React.FC<pokeInfo> = ({pokeInfo}) => {
   if(index < 151){
     return(
       <PokeCard 
-        name={pokemon.name}
+        name={pokemon.name.toUpperCase()}
         sprite={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[index+1]}.png`}
         key={index}
         id={index}
