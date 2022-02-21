@@ -1,7 +1,6 @@
 import '../CSS/PokeDetails.css'
 import React from "react"
 import {fetchOnePoke} from '../ApiCalls/apiCalls.tsx'
-import { type } from 'os'
 
 type ability = {
   name: string
@@ -23,7 +22,7 @@ type pokemon = {
   weight: number
   types: Array<{}>
   abilities: Array<ability>
-  moves: Array<{}>
+  moves: Array<move>
   sprites: front_default
   stats: Array<{}>
 }
