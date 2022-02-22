@@ -6,6 +6,8 @@ import GenerationContainer from '../Components/GenerationsContainer.tsx';
 import PokeContainer from './PokeContainer.tsx'
 import URLParams from './URLParams.tsx';
 import {Routes, Route} from 'react-router-dom'
+import SearchContainer from './SearchContainer.tsx';
+
 
 type state = {
   pokemon: Array <{}>,
@@ -33,6 +35,7 @@ class App extends React.Component <state, {}> {
         <Routes>
           <Route path='/' element={<PokeContainer pokeInfo={this.state.pokemon} />}/>
           <Route path='/:id' element={<URLParams />} />
+          {/* <Route path='/searched' element={<SearchContainer pokemonInfo={this.state.pokemon} searchWord={this.state.searchedName}/>} */}
         </Routes>
       </div>
     );
