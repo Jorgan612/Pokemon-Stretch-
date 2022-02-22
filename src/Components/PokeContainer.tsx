@@ -21,6 +21,13 @@ class PokeContainer extends React.Component<state, {}> {
   }
 
   listPokemon = () => {
+
+    const a = this.state.pokemon
+
+    console.log(a[0])
+
+    // console.log(a[0].url.substring(a[0].lastIndexOf('/')))
+
     return this.state.pokemon.map((pokemon, index) => {
       return (
         <PokeCard 

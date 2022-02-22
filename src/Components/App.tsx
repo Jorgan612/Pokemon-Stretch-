@@ -3,7 +3,7 @@ import React from 'react';
 import Nav from './Nav.tsx';
 import { fetchGenerationPoke } from '../ApiCalls/apiCalls.tsx'
 import GenerationContainer from '../Components/GenerationsContainer.tsx';
-import PokeContainer from './PokeContainerv2.tsx'
+import PokeContainer from './PokeContainer.tsx'
 import URLParams from './URLParams.tsx';
 import {Routes, Route} from 'react-router-dom'
 
