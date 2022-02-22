@@ -1,5 +1,6 @@
 import '../CSS/PokeDetails.css'
 import React from "react"
+import { Link } from 'react-router-dom';
 import {fetchOnePoke} from '../ApiCalls/apiCalls.tsx'
 
 type ability = {
@@ -39,7 +40,7 @@ class PokeDetails extends React.Component <MyState, {props}> {
   }
   
   componentDidMount = () => {
-    fetchOnePoke(this.props.id)
+    fetchOnePoke(Number(this.props.id) + 1)
       .then(data => this.setState({pokemon: data}))
       .catch(err => this.setState({error: err}))
   }
@@ -70,7 +71,9 @@ class PokeDetails extends React.Component <MyState, {props}> {
         <div className='name-sprite'>
           <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokemon.id]}.png`} alt={`${pokemon.name} sprite`} className='details-sprite'/>
           <div className='buttons'>
-            <button className='home'>Go Back</button>
+            <Link to='/'>
+              <button className='home'>Go Back</button>
+            </Link>
             <button className='favorite'>Favorite</button>
           </div>
           <h1 className='name'>{this.capitalizeName(pokemon.name)}</h1>

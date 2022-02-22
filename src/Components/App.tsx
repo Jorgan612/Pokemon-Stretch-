@@ -1,7 +1,7 @@
 import '../CSS/App.css';
 import React from 'react';
 import Nav from './Nav.tsx';
-import {fetchAllPoke} from '../ApiCalls/apiCalls.tsx'
+import { fetchGenerationPoke } from '../ApiCalls/apiCalls.tsx'
 import GenerationContainer from '../Components/GenerationsContainer.tsx';
 import PokeContainer from './PokeContainer.tsx'
 import URLParams from './URLParams.tsx';
@@ -10,17 +10,22 @@ import SearchContainer from './SearchContainer.tsx';
 
 
 type state = {
-  pokemon: Array <{}>,
+
+  generations: Array <{}>,
   error: string,
   searchedName: string
 }
-
+    
 class App extends React.Component <state, {}> {
-  state = {pokemon: [], error: '', searchedName: ''}
+  state = {
+    generations: [], 
+    error: '',
+    searchedName: ''
+  }
 
   componentDidMount = () => {
-    fetchAllPoke()
-    .then(data => this.setState({pokemon: data.results}))
+    fetchGenerationPoke()
+    .then(data => this.setState({generations: data.results}))
     .catch(error => this.setState({error: error}))
   }
 
@@ -33,9 +38,10 @@ class App extends React.Component <state, {}> {
       <div className="App">
         <Nav searchByName={this.searchByName} />
         <Routes>
-          <Route path='/' element={<PokeContainer pokeInfo={this.state.pokemon} />}/>
-          <Route path='/:id' element={<URLParams />} />
-          {/* <Route path='/searched' element={<SearchContainer pokemonInfo={this.state.pokemon} searchWord={this.state.searchedName}/>} */}
+          <Route path='/' element={<GenerationContainer genInfo = {this.state.generations} />} />
+          {/* <Route path='/' element={<PokeContainer pokeInfo={this.state.generations} />}/> */}
+          <Route path='/:generation' element={<PokeContainer />} />
+          <Route path='/:generation/:id' element={<URLParams />} />
         </Routes>
       </div>
     );
