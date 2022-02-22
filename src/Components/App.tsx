@@ -24,7 +24,7 @@ class App extends React.Component <state, {}> {
   render() {
     return (
       <div className="App">
-        <h1 className='title'>Gotta Ketchum All</h1>
+        <Nav />
         <Routes>
           <Route path='/' element={<PokeContainer pokeInfo={this.state.pokemon} />}/>
           <Route path='/:id' element={<URLParams />} />
