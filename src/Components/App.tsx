@@ -6,16 +6,21 @@ import GenerationContainer from '../Components/GenerationsContainer.tsx';
 import PokeContainer from './PokeContainer.tsx'
 import URLParams from './URLParams.tsx';
 import {Routes, Route} from 'react-router-dom'
+import SearchContainer from './SearchContainer.tsx';
+
 
 type state = {
-  generations: Array <{}>,
-  error: string
-}
 
+  generations: Array <{}>,
+  error: string,
+  searchedName: string
+}
+    
 class App extends React.Component <state, {}> {
   state = {
     generations: [], 
-    error: ''
+    error: '',
+    searchedName: ''
   }
 
   componentDidMount = () => {
@@ -24,10 +29,14 @@ class App extends React.Component <state, {}> {
     .catch(error => this.setState({error: error}))
   }
 
+  searchByName = (searchedName) => {
+    this.setState({searchedName: searchedName.searchWord})
+  }
+
   render() {
     return (
       <div className="App">
-        <h1 className='title'>Gotta Ketchum All</h1>
+        <Nav searchByName={this.searchByName} />
         <Routes>
           <Route path='/' element={<GenerationContainer genInfo = {this.state.generations} />} />
           {/* <Route path='/' element={<PokeContainer pokeInfo={this.state.generations} />}/> */}

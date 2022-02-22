@@ -2,5 +2,8 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   margin-left: 60px;
+  height: 60%;
+  padding: 20px;
+  border: 2px solid yellow;
 }
 
