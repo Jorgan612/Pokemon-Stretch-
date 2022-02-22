@@ -1,0 +1,16 @@
+.generation-card {
+  border: 1px solid red;
+  text-decoration: none;
+  color: black;
+}
+
+.pokeball {
+  height: 80%;
+  width: 50%;
+  z-index: -1;
+}
+
+.generation-name {
+  background-color: white;
+  z-index: 100;
+}
