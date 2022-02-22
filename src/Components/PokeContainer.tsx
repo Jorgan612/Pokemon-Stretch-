@@ -11,10 +11,9 @@ interface pokeDetails {
   sprite: string
 }
 
-
 const PokeContainer: React.FC<pokeInfo> = ({pokeInfo}) => {
   const pokeList = pokeInfo.map((pokemon, index) => {
-  if(index < 151){
+  if(index < 1510){
     return(
       <PokeCard 
         name={pokemon.name.toUpperCase()}

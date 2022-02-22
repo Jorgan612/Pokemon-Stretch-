@@ -1,14 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../CSS/Generations.css';
 
-const Generations = ({pokeInfo}) => {
-  console.log('Generations component prop---', pokeInfo)
+const Generations = ({genName, id}) => {
 
   return (
-    <> 
-    <h1>Hello World</h1>
-    
-    </>
+    <Link to={`${genName}`} className='generation-card'>
+      <img className ='pokeball' src={require('../Assets/flat-pokeball.png')} alt='pokeball background'/>
+      <h2 className='generation-name'>{genName.toUpperCase()}</h2>
+    </Link>
   )
 }
 
