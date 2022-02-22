@@ -10,6 +10,15 @@ type state = {
 class Nav extends React.Component <state, {}> {
   state = {searchWord: ''}
 
+  handleChange = (event) => {
+    this.setState({searchWord: event.target.value})
+  }
+
+  submitWord = (event) => {
+    const searchedName = {...this.state}
+    this.props.searchByName(searchedName)
+  }
+
   render() {
     return (
       <div className='nav-div'>
@@ -21,11 +30,12 @@ class Nav extends React.Component <state, {}> {
           <button>Favorites</button>
           <input 
             type='text'
-            placeholder='Search by Name'
             name='search'
+            placeholder='Search by Name'
             value={this.state.searchWord}
+            onChange={(event) => this.handleChange(event)}
           />
-          <button>Search</button>
+          <button onClick={(event) => this.submitWord(event) }>Search</button>
         </div>
       </div>
     )
