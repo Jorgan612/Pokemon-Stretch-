@@ -4,11 +4,11 @@ import '../CSS/Nav.css'
 
 
 type state = {
-  searchWord: Array<{}>
+  searchWord: string
 }
 
 class Nav extends React.Component <state, {}> {
-  state = {searchWord: []}
+  state = {searchWord: ''}
 
   render() {
     return (
