@@ -9,11 +9,12 @@ import {Routes, Route} from 'react-router-dom'
 
 type state = {
   pokemon: Array <{}>,
-  error: string
+  error: string,
+  searchedName: string
 }
 
 class App extends React.Component <state, {}> {
-  state = {pokemon: [], error: ''}
+  state = {pokemon: [], error: '', searchedName: ''}
 
   componentDidMount = () => {
     fetchAllPoke()
@@ -21,10 +22,14 @@ class App extends React.Component <state, {}> {
     .catch(error => this.setState({error: error}))
   }
 
+  searchByName = (searchedName) => {
+    this.setState({searchedName: searchedName.searchWord})
+  }
+
   render() {
     return (
       <div className="App">
-        <Nav />
+        <Nav searchByName={this.searchByName} />
         <Routes>
           <Route path='/' element={<PokeContainer pokeInfo={this.state.pokemon} />}/>
           <Route path='/:id' element={<URLParams />} />
