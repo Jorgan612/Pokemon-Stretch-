@@ -1,9 +1,9 @@
 import '../CSS/App.css';
 import React from 'react';
 import Nav from './Nav.tsx';
-import {fetchAllPoke, fetchGenerationPoke} from '../ApiCalls/apiCalls.tsx'
+import { fetchGenerationPoke } from '../ApiCalls/apiCalls.tsx'
 import GenerationContainer from '../Components/GenerationsContainer.tsx';
-import PokeContainerv2 from './PokeContainerv2.tsx'
+import PokeContainer from './PokeContainerv2.tsx'
 import URLParams from './URLParams.tsx';
 import {Routes, Route} from 'react-router-dom'
 
@@ -31,7 +31,7 @@ class App extends React.Component <state, {}> {
         <Routes>
           <Route path='/' element={<GenerationContainer genInfo = {this.state.generations} />} />
           {/* <Route path='/' element={<PokeContainer pokeInfo={this.state.generations} />}/> */}
-          <Route path='/:generation' element={<PokeContainerv2 />} />
+          <Route path='/:generation' element={<PokeContainer />} />
           <Route path='/:generation/:id' element={<URLParams />} />
         </Routes>
       </div>
