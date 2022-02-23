@@ -8,3 +8,8 @@
   text-decoration: none;
   color: black;
 }
+
+.pokemon-name{
+  font-size: 1.5em;
+  font-weight: bold;
+}

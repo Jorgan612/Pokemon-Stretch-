@@ -73,10 +73,13 @@ class PokeContainer extends React.Component<state, {props}> {
 
   render() {
     return(
-      <section className="pokemon-container">
+      <div className='poke-container'>
         <SearchBar searchPokemon={this.searchPokemon}/>
-        <h3>{this.listPokemon()}</h3>
-      </section>
+        <section className="pokemon-grid">
+          {this.listPokemon()}
+        </section>
+      
+      </div>
     )
   }
 }
