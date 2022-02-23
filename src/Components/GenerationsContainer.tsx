@@ -1,6 +1,7 @@
 import React from "react";
 import Generations from "./Generations.tsx";
 import '../CSS/GenerationContainer.css';
+import SearchBar from "./SearchBar.tsx";
 
 
 const GenerationContainer = ({genInfo}) => {

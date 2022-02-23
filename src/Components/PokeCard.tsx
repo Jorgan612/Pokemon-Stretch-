@@ -9,7 +9,7 @@ const PokeCard = ({name, sprite, id}) => {
  return(
    <Link to={`${id}`} className='poke-card' >
      <img src={sprite} alt='pokemon character'/>
-     <h1>{name}</h1>
+     <p className='pokemon-name'>{name}</p>
    </Link>
  )
 }
