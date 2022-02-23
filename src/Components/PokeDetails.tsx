@@ -88,18 +88,20 @@ class PokeDetails extends React.Component <MyState, {props}> {
           <div className='poke-stats'>
             <p className='height'>Height: {pokemon.height} units</p>
             <p className='weight'>Weight: {pokemon.weight} units</p>
-            <div className='types'>
-              <ul>Types:
-                <div className='type'>{this.displayProperties('types', 'type')}</div>
-              </ul>
-            </div>
-            <div className='abilities'>
-              <ul>Abilities: 
-                <div className='ability'>{this.displayProperties('abilities', 'ability')}</div>
-              </ul>
+            <div className='types-abilities'>
+              <div className='types'>
+                <ul>Types:
+                  <div className='type'>{this.displayProperties('types', 'type')}</div>
+                </ul>
+              </div>
+              <div className='abilities'>
+                <ul>Abilities: 
+                  <div className='ability'>{this.displayProperties('abilities', 'ability')}</div>
+                </ul>
+              </div>
             </div>
             <label className='moves'>Moves:
-              <select name='moves' className='tags-drop-down'>
+              <select name='moves' className='tags-drop-down' size='5'>
                 {this.displayProperties('moves', 'move')}
               </select>
             </label>

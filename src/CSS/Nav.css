@@ -4,11 +4,13 @@
   letter-spacing: .2em;
   -webkit-text-stroke: 3px #6887D9;
   color: #F6CF57;
+  margin-bottom: 30px;
 }
 
 .nav-div {
   height: 40%;
   padding-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .nav-button {
