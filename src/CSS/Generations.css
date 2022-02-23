@@ -4,10 +4,21 @@
   color: black;
 }
 
+/* .generation-card:hover {
+  transition: 1s; 
+  transform: scale(1.05);
+} */
+
 .pokeball {
   height: 80%;
   width: 50%;
   z-index: -1;
+}
+
+.pokeball:hover {
+  transition: 1s;
+  transform: rotate(1turn) scale(1.2);
+  /* transform: rotate(0.5turn) */
 }
 
 .generation-name {

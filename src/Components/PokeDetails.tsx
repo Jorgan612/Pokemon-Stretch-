@@ -69,7 +69,9 @@ class PokeDetails extends React.Component <MyState, {props}> {
     return(
       <section className='poke-details'>
         <div className='name-sprite'>
-          <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokemon.id]}.png`} alt={`${pokemon.name} sprite`} className='details-sprite'/>
+          <div className='details-sprite-div'>
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokemon.id]}.png`} alt={`${pokemon.name} sprite`} className='details-sprite'/>
+          </div>
           <div className='buttons'>
             <Link to='/'>
               <button className='home'>Go Back</button>

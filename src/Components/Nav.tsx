@@ -8,7 +8,7 @@ const Nav  = () =>  {
         <div>
           <h1 className='title'>Gotta Ketchum All</h1>
         </div>
-        <div>
+        <div className='nav-button-div'>
           <button>Home</button>
           <button>Favorites</button>
         </div>

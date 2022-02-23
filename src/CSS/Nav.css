@@ -1,5 +1,10 @@
 .nav-div {
-  border: 2px solid red;
+  border: 2px solid purple;
   height: 40%;
   /* margin-bottom: 20px; */
+}
+
+.nav-button-div {
+  border: 2px solid blue;
+  height: 50%;
 }
