@@ -26,6 +26,7 @@ type pokemon = {
   moves: Array<move>
   sprites: front_default
   stats: Array<{}>
+  id: number
 }
 
 type MyState = {
@@ -77,7 +78,10 @@ class PokeDetails extends React.Component <MyState, {props}> {
             </Link>
             <button className='favorite'>Favorite</button>
           </div>
-          <h1 className='name'>{this.capitalizeName(pokemon.name)}</h1>
+          <div className='name-id'>
+            <h3 className='name'>{this.capitalizeName(pokemon.name)}</h3>
+            <p className='id'>ID: {pokemon.id}</p>
+          </div>
         </div>
         <div className='center-detail'></div>
         <div className='poke-stats-style'>

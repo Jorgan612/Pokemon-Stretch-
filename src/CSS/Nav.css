@@ -1,3 +1,11 @@
+.title {
+  font-family: 'Pokemon Solid', sans-serif;
+  font-size: 70px;
+  letter-spacing: .2em;
+  -webkit-text-stroke: 3px #6887D9;
+  color: #F6CF57;
+}
+
 .nav-div {
   height: 40%;
   padding-bottom: 20px;
@@ -7,9 +15,11 @@
   height: 50px;
   width: 20vw;
   background-color: red;
+  border: none;
   font-size: 20px;
   font-weight: bolder;
   cursor: pointer;
+  box-shadow: 3px 3px #4f0202;
 }
 
 .nav-button:hover {

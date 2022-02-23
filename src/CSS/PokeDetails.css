@@ -4,7 +4,7 @@
   align-items: center;
   background-color: red;
   border-radius: 20px;
-  width: 50%;
+  width: 60%;
   height: 80vh;
 }
 
@@ -71,14 +71,24 @@ ul {
   border-radius: 35px;
 }
 
-.name {
+.name-id {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background-color: white;
   height: 20%;
   margin: 20px;
   border-radius: 35px;
+}
+
+.name {
+  font-size: 30px;
+  margin: 7px;
+}
+
+.id {
+  margin: 7px;
 }
 
 .poke-stats {
@@ -96,4 +106,10 @@ ul {
   width: 35%;
   height: 85%;
   border: 20px solid darkred;
+}
+
+.center-detail {
+  background-color: #4f0202;
+  height: 100%;
+  width: 5px;
 }
