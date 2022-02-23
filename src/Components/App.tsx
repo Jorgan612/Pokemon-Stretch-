@@ -10,7 +10,6 @@ import SearchContainer from './SearchContainer.tsx';
 
 
 type state = {
-
   generations: Array <{}>,
   error: string,
   searchedName: string
@@ -38,9 +37,8 @@ class App extends React.Component <state, {}> {
       <div className="App">
         <Nav searchByName={this.searchByName} />
         <Routes>
-          <Route path='/' element={<GenerationContainer genInfo = {this.state.generations} />} />
-          {/* <Route path='/' element={<PokeContainer pokeInfo={this.state.generations} />}/> */}
-          <Route path='/:generation' element={<PokeContainer />} />
+          <Route path='/' element={<GenerationContainer genInfo={this.state.generations} />} />
+          <Route path='/:generation' element={<PokeContainer prop={this.state.generations}/>} />
           <Route path='/:generation/:id' element={<URLParams />} />
         </Routes>
       </div>
