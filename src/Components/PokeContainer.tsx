@@ -1,24 +1,36 @@
 import React from 'react'
 import { fetchPokemonByGen } from '../ApiCalls/apiCalls.tsx'
-// import { useLocation } from 'react-router-dom';
 import '../CSS/PokeContainer.css'
 import PokeCard from './PokeCard.tsx'
+import SearchBar from './SearchBar.tsx'
 
 type state = {
   pokemon: Array<{}>,
   error: string
+  filteredPokemon: Array<{}>
 }
 
 class PokeContainer extends React.Component<state, {props}> {
   state = {
     pokemon: [],
-    error: ''
+    error: '',
+    filteredPokemon: []
   }
 
   componentDidMount = () => {
     fetchPokemonByGen(this.interpretNumbers())
-      .then(data => this.setState({pokemon: data.pokemon_species}))
+      .then(data => {
+        this.setState({pokemon: data.pokemon_species})
+        this.setState({filteredPokemon: data.pokemon_species})})
       .catch(error => this.setState({error: error}))
+  }
+
+  searchPokemon = (searchQuery) => {
+    const filteredPokemon = this.state.filteredPokemon.filter(pokemon => {
+      const lowerCasePokemon = pokemon.name.toLowerCase()
+      return lowerCasePokemon.includes(searchQuery.toLowerCase())
+    })
+    this.setState({pokemon: filteredPokemon})
   }
 
   interpretNumbers = () => {
@@ -62,6 +74,7 @@ class PokeContainer extends React.Component<state, {props}> {
   render() {
     return(
       <section className="pokemon-container">
+        <SearchBar searchPokemon={this.searchPokemon}/>
         <h3>{this.listPokemon()}</h3>
       </section>
     )
