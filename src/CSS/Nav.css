@@ -1,5 +1,35 @@
+.title {
+  font-family: 'Pokemon Solid', sans-serif;
+  font-size: 70px;
+  letter-spacing: .2em;
+  -webkit-text-stroke: 3px #6887D9;
+  color: #F6CF57;
+  margin-bottom: 30px;
+}
+
 .nav-div {
-  border: 2px solid red;
   height: 40%;
-  /* margin-bottom: 20px; */
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.nav-button {
+  height: 50px;
+  width: 20vw;
+  background-color: red;
+  border: none;
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+  box-shadow: 3px 3px #4f0202;
+}
+
+.nav-button:hover {
+  transition: .2s;
+  transform: scale(1.1);
+}
+
+.button-style {
+  display: flex;
+  justify-content: space-evenly;
 }

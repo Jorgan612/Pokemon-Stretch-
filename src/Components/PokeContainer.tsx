@@ -59,13 +59,13 @@ class PokeContainer extends React.Component<state, {props}> {
     
     return sortedPoke.map((pokemon, index) => {
       const pokeId = pokemon.url.split('/')[6]
-      
+            
       return (
         <PokeCard 
           name={pokemon.name.toUpperCase()}
           sprite={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokeId]}.png`}
           key={index}
-          id={index}
+          id={pokeId}
         />
       )
     })

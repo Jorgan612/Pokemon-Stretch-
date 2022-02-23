@@ -1,4 +1,21 @@
 .gen-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gen-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: antiquewhite;
+  border-radius: 15px;
+  width: 30%;
+  height: 40px;
+}
+
+.gen-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

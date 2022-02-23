@@ -17,9 +17,12 @@ const GenerationContainer = ({genInfo}) => {
   })
   
   return (
-    <section className="gen-container">
-      {genList}
-    </section>
+    <div className="gen-container">
+      <h2 className="gen-title">Choose Pokemon Generation</h2>
+      <section className="gen-list">
+        {genList}
+      </section>
+    </div>
   )
 }
 

@@ -1,16 +1,31 @@
 .generation-card {
-  border: 1px solid red;
   text-decoration: none;
-  color: black;
+  color: white;
+  position: relative;
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  margin: 0px 100px;
 }
 
 .pokeball {
-  height: 80%;
-  width: 50%;
-  z-index: -1;
+  height: 300px;
+  width: 300px;
+  cursor: pointer;
+}
+
+.pokeball:hover {
+  transition: 1.5s;
+  transform: rotate(1turn) scale(1.1);
 }
 
 .generation-name {
-  background-color: white;
   z-index: 100;
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 10px;
+  padding: 5px;
 }
