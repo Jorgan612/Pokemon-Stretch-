@@ -1,5 +1,23 @@
 .nav-div {
-  border: 2px solid red;
   height: 40%;
-  /* margin-bottom: 20px; */
+  padding-bottom: 20px;
+}
+
+.nav-button {
+  height: 50px;
+  width: 20vw;
+  background-color: red;
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  transition: .2s;
+  transform: scale(1.1);
+}
+
+.button-style {
+  display: flex;
+  justify-content: space-evenly;
 }

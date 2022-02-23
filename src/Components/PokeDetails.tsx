@@ -1,7 +1,7 @@
-import '../CSS/PokeDetails.css'
-import React from "react"
+import '../CSS/PokeDetails.css';
+import React from "react";
 import { Link } from 'react-router-dom';
-import {fetchOnePoke} from '../ApiCalls/apiCalls.tsx'
+import { fetchOnePoke } from '../ApiCalls/apiCalls.tsx';
 
 type ability = {
   name: string
@@ -66,12 +66,13 @@ class PokeDetails extends React.Component <MyState, {props}> {
   render() {
     const pokemon = this.state.pokemon;
 
+    //have link interpret pokemon generation roman numeral
     return(
       <section className='poke-details'>
         <div className='name-sprite'>
           <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokemon.id]}.png`} alt={`${pokemon.name} sprite`} className='details-sprite'/>
           <div className='buttons'>
-            <Link to='/'>
+            <Link to='/'> 
               <button className='home'>Go Back</button>
             </Link>
             <button className='favorite'>Favorite</button>

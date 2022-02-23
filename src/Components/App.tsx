@@ -6,7 +6,6 @@ import GenerationContainer from '../Components/GenerationsContainer.tsx';
 import PokeContainer from './PokeContainer.tsx'
 import URLParams from './URLParams.tsx';
 import {Routes, Route} from 'react-router-dom'
-import SearchContainer from './SearchContainer.tsx';
 
 
 type state = {

@@ -8,14 +8,3 @@ html {
   align-items: stretch;
   text-align: center;
 }
-
-.background {
-  position: absolute;
-  background-size: cover;
-  z-index: -1;
-  opacity: .2;
-}
-
-.title {
-  z-index: 1;
-}
