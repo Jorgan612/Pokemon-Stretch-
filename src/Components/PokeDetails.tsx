@@ -67,11 +67,13 @@ class PokeDetails extends React.Component <MyState, {props}> {
   render() {
     const pokemon = this.state.pokemon;
 
-    //have link interpret pokemon generation roman numeral
+    //have link interpret pokemon generation roman numeral for go back button
     return(
       <section className='poke-details'>
         <div className='name-sprite'>
-          <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokemon.id]}.png`} alt={`${pokemon.name} sprite`} className='details-sprite'/>
+          <div className='details-sprite-container'>
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokemon.id]}.png`} alt={`${pokemon.name} sprite`} className='details-sprite'/>
+          </div>
           <div className='buttons'>
             <Link to='/'> 
               <button className='home'>Go Back</button>
@@ -80,14 +82,21 @@ class PokeDetails extends React.Component <MyState, {props}> {
           </div>
           <div className='name-id'>
             <h3 className='name'>{this.capitalizeName(pokemon.name)}</h3>
-            <p className='id'>ID: {pokemon.id}</p>
+            <p className='id'>ID: #{pokemon.id}</p>
           </div>
         </div>
         <div className='center-detail'></div>
         <div className='poke-stats-style'>
           <div className='poke-stats'>
-            <p className='height'>Height: {pokemon.height} units</p>
-            <p className='weight'>Weight: {pokemon.weight} units</p>
+            <div className='height-weight'>
+              <p className='height'><span>Height:</span> {pokemon.height} units</p>
+              <p className='weight'><span>Weight:</span> {pokemon.weight} units</p>
+            </div>
+            <div className='white-space-deco'>
+              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
+              <div className='line'></div>
+              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
+            </div>
             <div className='types-abilities'>
               <div className='types'>
                 <ul>Types:
@@ -99,6 +108,11 @@ class PokeDetails extends React.Component <MyState, {props}> {
                   <div className='ability'>{this.displayProperties('abilities', 'ability')}</div>
                 </ul>
               </div>
+            </div>
+            <div className='white-space-deco'>
+              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
+              <div className='line'></div>
+              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
             </div>
             <label className='moves'>Moves:
               <select name='moves' className='tags-drop-down' size='5'>

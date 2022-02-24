@@ -25,7 +25,7 @@
   top: 43%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: black;
   border-radius: 10px;
   padding: 5px;
+  color: black;
 }

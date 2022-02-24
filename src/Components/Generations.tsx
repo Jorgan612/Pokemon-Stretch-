@@ -7,7 +7,7 @@ const Generations = ({genName, id}) => {
   return (
     <Link to={`${genName}`} className='generation-card' id={id}>
       <img className ='pokeball' src={require('../Assets/flat-pokeball.png')} alt='pokeball background'/>
-      <h2 className='generation-name'>{genName.toUpperCase()}</h2>
+      <h2 className='generation-name'>{genName.slice(11).toUpperCase()}</h2>
     </Link>
   )
 }
