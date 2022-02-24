@@ -63,6 +63,23 @@ class PokeDetails extends React.Component <MyState, {props}> {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
   }
+
+  favoritePokemon = event => {
+    event.preventDefault();
+    const favPoke = {
+      ...this.state.pokemon
+    }
+
+    const pokeNames = this.props.favoritePokemon.map(pokemon => {
+      return pokemon.name;
+    })
+
+    if(!pokeNames.includes(favPoke.name)) {
+      this.props.addFavoritePokemon(favPoke)
+    }else {
+      console.log('already here, dingus')
+    }
+  }
   
   render() {
     const pokemon = this.state.pokemon;
@@ -78,7 +95,7 @@ class PokeDetails extends React.Component <MyState, {props}> {
             <Link to='/'> 
               <button className='home'>Go Back</button>
             </Link>
-            <button className='favorite'>Favorite</button>
+            <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
           </div>
           <div className='name-id'>
             <h3 className='name'>{this.capitalizeName(pokemon.name)}</h3>
@@ -93,9 +110,9 @@ class PokeDetails extends React.Component <MyState, {props}> {
               <p className='weight'><span>Weight:</span> {pokemon.weight} units</p>
             </div>
             <div className='white-space-deco'>
-              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
+              <img src={require('../Assets/flat-pokeball.png')} alt='pokeballs' className='small-balls'/>
               <div className='line'></div>
-              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
+              <img src={require('../Assets/flat-pokeball.png')} alt='pokeballs' className='small-balls'/>
             </div>
             <div className='types-abilities'>
               <div className='types'>
@@ -110,9 +127,9 @@ class PokeDetails extends React.Component <MyState, {props}> {
               </div>
             </div>
             <div className='white-space-deco'>
-              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
+              <img src={require('../Assets/flat-pokeball.png')} alt='pokeballs' className='small-balls'/>
               <div className='line'></div>
-              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
+              <img src={require('../Assets/flat-pokeball.png')} alt='pokeballs' className='small-balls'/>
             </div>
             <label className='moves'>Moves:
               <select name='moves' className='tags-drop-down' size='5'>

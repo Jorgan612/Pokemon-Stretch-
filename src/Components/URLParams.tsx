@@ -3,13 +3,13 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import PokeDetails from './PokeDetails.tsx';
 
-const URLParams = () => {
+const URLParams = ({addFavoritePokemon, favoritePokemon}) => {
 
   const id = useParams().id;
 
   return (
     <div className='div'>
-      <PokeDetails id={id}/>
+      <PokeDetails id={id} addFavoritePokemon={addFavoritePokemon} favoritePokemon={favoritePokemon}/>
     </div>
   )
 }
