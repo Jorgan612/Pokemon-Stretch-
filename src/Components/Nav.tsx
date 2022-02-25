@@ -12,7 +12,9 @@ const Nav  = () =>  {
         <Link to='/'>
           <button className='nav-button'>Home</button>
         </Link>
-        <button className='nav-button'>Favorites</button>
+        <Link to='/favorites'>
+          <button className='nav-button'>Favorites</button>
+        </Link>
       </div>
     </div>
   )

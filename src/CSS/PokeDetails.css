@@ -189,3 +189,7 @@ ul {
 span {
   font-weight: bold;
 }
+
+.disabled {
+  background-color: black;
+}

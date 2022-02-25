@@ -31,19 +31,22 @@ type pokemon = {
 
 type MyState = {
   pokemon: pokemon,
+  isFavorited: boolean
   error: string
 }
 
 class PokeDetails extends React.Component <MyState, {props}> {
   state: MyState = {
     pokemon: {},
+    isFavorited: false,
     error: ''
   }
   
-  componentDidMount = () => {
+  componentDidMount = () => {    
     fetchOnePoke(Number(this.props.id) + 1)
       .then(data => this.setState({pokemon: data}))
       .catch(err => this.setState({error: err}))
+      .finally(this.checkIfFavorited())
   }
 
   displayProperties = (propertyOne, propertyTwo) => {
@@ -63,9 +66,42 @@ class PokeDetails extends React.Component <MyState, {props}> {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
   }
+
+  favoritePokemon = () => {
+    const favPoke = {
+      ...this.state.pokemon
+    }
+
+    const pokeNames = this.props.favoritePokemon.map(pokemon => {
+      return pokemon.name;
+    })
+
+    if(!pokeNames.includes(favPoke.name)) {
+      this.props.addFavoritePokemon(favPoke)
+      this.setState({isFavorited: true})
+    }else {
+      console.log('already here, dingus')
+      return false
+    }
+  }
+
+  checkIfFavorited = () => {
+    const pokeNames = this.props.favoritePokemon.map(pokemon => {
+      return pokemon.name;
+    })
+
+    console.log('pokeNames', pokeNames)
+    console.log('name', this.state.pokemon)
+
+    if(pokeNames.includes(this.state.pokemon.name)) {
+      this.setState({isFavorited: true})
+    }
+  }
   
   render() {
     const pokemon = this.state.pokemon;
+    const favButton = <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
+    const disabledButton = <button className='disabled' onClick={event => this.favoritePokemon(event)}>Favorite</button>
 
     //have link interpret pokemon generation roman numeral for go back button
     return(
@@ -78,7 +114,8 @@ class PokeDetails extends React.Component <MyState, {props}> {
             <Link to='/'> 
               <button className='home'>Go Back</button>
             </Link>
-            <button className='favorite'>Favorite</button>
+            {this.state.isFavorited ? disabledButton : favButton}
+            {/* <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button> */}
           </div>
           <div className='name-id'>
             <h3 className='name'>{this.capitalizeName(pokemon.name)}</h3>
@@ -93,9 +130,9 @@ class PokeDetails extends React.Component <MyState, {props}> {
               <p className='weight'><span>Weight:</span> {pokemon.weight} units</p>
             </div>
             <div className='white-space-deco'>
-              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
+              <img src={require('../Assets/flat-pokeball.png')} alt='pokeballs' className='small-balls'/>
               <div className='line'></div>
-              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
+              <img src={require('../Assets/flat-pokeball.png')} alt='pokeballs' className='small-balls'/>
             </div>
             <div className='types-abilities'>
               <div className='types'>
@@ -110,9 +147,9 @@ class PokeDetails extends React.Component <MyState, {props}> {
               </div>
             </div>
             <div className='white-space-deco'>
-              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
+              <img src={require('../Assets/flat-pokeball.png')} alt='pokeballs' className='small-balls'/>
               <div className='line'></div>
-              <img src={require('../Assets/flat-pokeball.png')} className='small-balls'/>
+              <img src={require('../Assets/flat-pokeball.png')} alt='pokeballs' className='small-balls'/>
             </div>
             <label className='moves'>Moves:
               <select name='moves' className='tags-drop-down' size='5'>

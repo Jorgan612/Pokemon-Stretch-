@@ -10,11 +10,11 @@ type state = {
   filteredPokemon: Array<{}>
 }
 
-class PokeContainer extends React.Component<state, {props}> {
+class PokeContainer extends React.Component<state, {}> {
   state = {
     pokemon: [],
     error: '',
-    filteredPokemon: []
+    filteredPokemon: [],
   }
 
   componentDidMount = () => {
