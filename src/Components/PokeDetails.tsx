@@ -95,10 +95,10 @@ class PokeDetails extends React.Component <MyState, {props}> {
     }
   }
   
-  goBack = () => {
-    const url = window.location.href.split('-')[1].split('/')[0]
-    console.log('url--', url)
-    return url;
+ goBack = () => {
+    let urlParts = window.location.href.split('/');
+    urlParts.pop();
+    return '/' + urlParts.splice(-1)[0];
   }
 
   render() {
@@ -114,7 +114,7 @@ class PokeDetails extends React.Component <MyState, {props}> {
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokemon.id]}.png`} alt={`${pokemon.name} sprite`} className='details-sprite'/>
           </div>
           <div className='buttons'>
-            <Link to='/'> 
+            <Link to={{pathname: this.goBack()}} >
               <button className='home'>Go Back</button>
             </Link>
             {this.state.isFavorited ? disabledButton : favButton}
