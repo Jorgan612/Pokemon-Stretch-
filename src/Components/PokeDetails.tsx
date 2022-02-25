@@ -31,19 +31,22 @@ type pokemon = {
 
 type MyState = {
   pokemon: pokemon,
+  isFavorited: boolean
   error: string
 }
 
 class PokeDetails extends React.Component <MyState, {props}> {
   state: MyState = {
     pokemon: {},
+    isFavorited: false,
     error: ''
   }
   
-  componentDidMount = () => {
+  componentDidMount = () => {    
     fetchOnePoke(Number(this.props.id) + 1)
       .then(data => this.setState({pokemon: data}))
       .catch(err => this.setState({error: err}))
+      .finally(this.checkIfFavorited())
   }
 
   displayProperties = (propertyOne, propertyTwo) => {
@@ -64,8 +67,7 @@ class PokeDetails extends React.Component <MyState, {props}> {
     }
   }
 
-  favoritePokemon = event => {
-    event.preventDefault();
+  favoritePokemon = () => {
     const favPoke = {
       ...this.state.pokemon
     }
@@ -76,13 +78,30 @@ class PokeDetails extends React.Component <MyState, {props}> {
 
     if(!pokeNames.includes(favPoke.name)) {
       this.props.addFavoritePokemon(favPoke)
+      this.setState({isFavorited: true})
     }else {
       console.log('already here, dingus')
+      return false
+    }
+  }
+
+  checkIfFavorited = () => {
+    const pokeNames = this.props.favoritePokemon.map(pokemon => {
+      return pokemon.name;
+    })
+
+    console.log('pokeNames', pokeNames)
+    console.log('name', this.state.pokemon)
+
+    if(pokeNames.includes(this.state.pokemon.name)) {
+      this.setState({isFavorited: true})
     }
   }
   
   render() {
     const pokemon = this.state.pokemon;
+    const favButton = <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
+    const disabledButton = <button className='disabled' onClick={event => this.favoritePokemon(event)}>Favorite</button>
 
     //have link interpret pokemon generation roman numeral for go back button
     return(
@@ -95,7 +114,8 @@ class PokeDetails extends React.Component <MyState, {props}> {
             <Link to='/'> 
               <button className='home'>Go Back</button>
             </Link>
-            <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
+            {this.state.isFavorited ? disabledButton : favButton}
+            {/* <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button> */}
           </div>
           <div className='name-id'>
             <h3 className='name'>{this.capitalizeName(pokemon.name)}</h3>
