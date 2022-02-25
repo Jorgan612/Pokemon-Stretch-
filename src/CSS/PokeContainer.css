@@ -1,10 +1,7 @@
 .pokemon-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  margin-left: 60px;
-  height: 60%;
-  padding: 20px;
-  grid-gap: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .poke-container{

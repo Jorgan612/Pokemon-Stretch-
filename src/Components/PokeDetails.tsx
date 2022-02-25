@@ -2,6 +2,7 @@ import '../CSS/PokeDetails.css';
 import React from "react";
 import { Link } from 'react-router-dom';
 import { fetchOnePoke } from '../ApiCalls/apiCalls.tsx';
+import Error from './Error.tsx'
 
 type ability = {
   name: string
@@ -90,32 +91,36 @@ class PokeDetails extends React.Component <MyState, {props}> {
       return pokemon.name;
     })
 
-    console.log('pokeNames', pokeNames)
-    console.log('name', this.state.pokemon)
-
     if(pokeNames.includes(this.state.pokemon.name)) {
       this.setState({isFavorited: true})
     }
   }
   
+ goBack = () => {
+    let urlParts = window.location.href.split('/');
+    urlParts.pop();
+    return '/' + urlParts.splice(-1)[0];
+  }
+
   render() {
     const pokemon = this.state.pokemon;
     const favButton = <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
-    const disabledButton = <button className='disabled' onClick={event => this.favoritePokemon(event)}>Favorite</button>
+    const disabledButton = <button className='disabled' onClick={event => this.favoritePokemon(event)}>Un-Favorite</button>
 
     //have link interpret pokemon generation roman numeral for go back button
     return(
       <section className='poke-details'>
+      {this.state.pokemon.name ? 
+      <>
         <div className='name-sprite'>
           <div className='details-sprite-container'>
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokemon.id]}.png`} alt={`${pokemon.name} sprite`} className='details-sprite'/>
           </div>
           <div className='buttons'>
-            <Link to='/'> 
+            <Link to={{pathname: this.goBack()}} >
               <button className='home'>Go Back</button>
             </Link>
             {this.state.isFavorited ? disabledButton : favButton}
-            {/* <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button> */}
           </div>
           <div className='name-id'>
             <h3 className='name'>{this.capitalizeName(pokemon.name)}</h3>
@@ -158,6 +163,8 @@ class PokeDetails extends React.Component <MyState, {props}> {
             </label>
           </div>
         </div>
+      </>
+        : <Error />}
       </section>
     )
   }

@@ -3,6 +3,7 @@ import { fetchPokemonByGen } from '../ApiCalls/apiCalls.tsx'
 import '../CSS/PokeContainer.css'
 import PokeCard from './PokeCard.tsx'
 import SearchBar from './SearchBar.tsx'
+import Error from './Error.tsx'
 
 type state = {
   pokemon: Array<{}>,
@@ -56,7 +57,7 @@ class PokeContainer extends React.Component<state, {}> {
       let urlB = Number(b.url.split('/')[6])
       return urlA - urlB
     })
-    
+
     return sortedPoke.map((pokemon, index) => {
       const pokeId = pokemon.url.split('/')[6]
             
@@ -74,11 +75,14 @@ class PokeContainer extends React.Component<state, {}> {
   render() {
     return(
       <div className='poke-container'>
-        <SearchBar searchPokemon={this.searchPokemon}/>
-        <section className="pokemon-grid">
-          {this.listPokemon()}
-        </section>
-      
+          <SearchBar searchPokemon={this.searchPokemon}/>
+        {this.state.pokemon.length > 0 ? 
+        <>
+          <section className="pokemon-grid">
+            {this.listPokemon()}
+          </section> 
+        </> 
+        : <Error />}
       </div>
     )
   }
