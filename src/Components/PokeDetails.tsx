@@ -90,9 +90,6 @@ class PokeDetails extends React.Component <MyState, {props}> {
       return pokemon.name;
     })
 
-    console.log('pokeNames', pokeNames)
-    console.log('name', this.state.pokemon)
-
     if(pokeNames.includes(this.state.pokemon.name)) {
       this.setState({isFavorited: true})
     }
@@ -101,7 +98,7 @@ class PokeDetails extends React.Component <MyState, {props}> {
   render() {
     const pokemon = this.state.pokemon;
     const favButton = <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
-    const disabledButton = <button className='disabled' onClick={event => this.favoritePokemon(event)}>Favorite</button>
+    const disabledButton = <button className='disabled' onClick={event => this.favoritePokemon(event)}>Un-Favorite</button>
 
     //have link interpret pokemon generation roman numeral for go back button
     return(
