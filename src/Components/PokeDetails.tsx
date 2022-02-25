@@ -95,6 +95,12 @@ class PokeDetails extends React.Component <MyState, {props}> {
     }
   }
   
+  goBack = () => {
+    const url = window.location.href.split('-')[1].split('/')[0]
+    console.log('url--', url)
+    return url;
+  }
+
   render() {
     const pokemon = this.state.pokemon;
     const favButton = <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
@@ -112,7 +118,6 @@ class PokeDetails extends React.Component <MyState, {props}> {
               <button className='home'>Go Back</button>
             </Link>
             {this.state.isFavorited ? disabledButton : favButton}
-            {/* <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button> */}
           </div>
           <div className='name-id'>
             <h3 className='name'>{this.capitalizeName(pokemon.name)}</h3>

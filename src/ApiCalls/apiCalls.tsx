@@ -5,7 +5,7 @@ const fetchAllPoke = async() => {
 }
 
 const fetchGenerationPoke = async() => {
-  const response = await fetch('https://pokeapi.co/api/v2/generation/')
+  const response = await fetch('https://pokeapi.co/api/v2/generations/')
   const data = await response.json();
   return data;
 }

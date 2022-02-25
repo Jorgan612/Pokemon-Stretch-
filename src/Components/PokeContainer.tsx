@@ -56,7 +56,7 @@ class PokeContainer extends React.Component<state, {}> {
       let urlB = Number(b.url.split('/')[6])
       return urlA - urlB
     })
-    
+
     return sortedPoke.map((pokemon, index) => {
       const pokeId = pokemon.url.split('/')[6]
             
