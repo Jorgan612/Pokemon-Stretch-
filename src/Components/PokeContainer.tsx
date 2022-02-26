@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { fetchPokemonByGen } from '../ApiCalls/apiCalls.tsx'
+import { fetchPokemonByGen, fetchAllPoke } from '../ApiCalls/apiCalls.tsx'
 import '../CSS/PokeContainer.css'
 import PokeCard from './PokeCard.tsx'
 import SearchBar from './SearchBar.tsx'
@@ -12,7 +12,7 @@ type state = {
   error: string
 }
 
-class PokeContainer extends React.Component<state, {}> {
+class PokeContainer extends React.Component<state, { allPoke }> {
   state = {
     pokemon: [],
     filteredPokemon: [],
@@ -20,11 +20,21 @@ class PokeContainer extends React.Component<state, {}> {
   }
 
   componentDidMount = () => {
-    fetchPokemonByGen(this.interpretNumbers())
-      .then(data => {
-        this.setState({pokemon: data.pokemon_species})
-        this.setState({filteredPokemon: data.pokemon_species})})
-      .catch(error => this.setState({error: error}))
+    const url = window.location.pathname;
+    
+    if(url === '/all-pokemon') {
+      fetchAllPoke()
+        .then(data => {
+          this.setState({pokemon: data.results})
+          this.setState({filteredPokemon: data.results})})
+        .catch(error => this.setState({error: error}))  
+    }else {
+      fetchPokemonByGen(this.interpretNumbers())
+        .then(data => {
+          this.setState({pokemon: data.pokemon_species})
+          this.setState({filteredPokemon: data.pokemon_species})})
+        .catch(error => this.setState({error: error}))
+    }
   }
 
   searchPokemon = (searchQuery) => {
