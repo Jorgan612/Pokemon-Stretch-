@@ -10,7 +10,7 @@ describe('Error Flow', () => {
 
   it('should show an error if a 404 error occurs', () => {
     cy.intercept('GET', 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=898', {statusCode: 404})
-     cy.visit('http://localhost:3000/');
+    cy.visit('http://localhost:3000/999999999999999');
     cy.contains('Oops!! Something went wrong!');
 
   })
