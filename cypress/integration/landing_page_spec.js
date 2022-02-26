@@ -1,5 +1,6 @@
 describe('Landing Page User Flows', () => {
   beforeEach(() => {
+    cy.intercept('GET', 'https://pokeapi.co/api/v2/generation/', {fixture: "generations.json"})
      cy.visit('http://localhost:3000');
   });
 
