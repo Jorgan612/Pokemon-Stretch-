@@ -2,8 +2,6 @@ import React from 'react';
 import '../CSS/PokeCard.css';
 import { Link } from 'react-router-dom';
 
-//do we need type also?
-
 const PokeCard = ({name, sprite, id}) => {
   return(
     <Link to={`${Number(id) - 1}`} className='poke-card' >

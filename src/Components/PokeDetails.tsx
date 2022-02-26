@@ -44,10 +44,9 @@ class PokeDetails extends React.Component <MyState, {props}> {
   }
   
   componentDidMount = () => {    
-    fetchOnePoke(Number(this.props.id) + 1)
+    fetchOnePoke(Number(window.location.pathname.split('/')[2]) + 1)
       .then(data => this.setState({pokemon: data}))
       .catch(err => this.setState({error: err}))
-      .finally(this.checkIfFavorited())
   }
 
   displayProperties = (propertyOne, propertyTwo) => {
@@ -85,18 +84,8 @@ class PokeDetails extends React.Component <MyState, {props}> {
       return false
     }
   }
-
-  checkIfFavorited = () => {
-    const pokeNames = this.props.favoritePokemon.map(pokemon => {
-      return pokemon.name;
-    })
-
-    if(pokeNames.includes(this.state.pokemon.name)) {
-      this.setState({isFavorited: true})
-    }
-  }
   
- goBack = () => {
+  goBack = () => {
     let urlParts = window.location.href.split('/');
     urlParts.pop();
     return '/' + urlParts.splice(-1)[0];
@@ -107,11 +96,10 @@ class PokeDetails extends React.Component <MyState, {props}> {
     const favButton = <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
     const disabledButton = <button className='disabled' onClick={event => this.favoritePokemon(event)}>Un-Favorite</button>
 
-    //have link interpret pokemon generation roman numeral for go back button
     return(
-      <section className='poke-details'>
-      {this.state.pokemon.name ? 
       <>
+      {this.state.pokemon.name ? 
+      <section className='poke-details'>
         <div className='name-sprite'>
           <div className='details-sprite-container'>
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokemon.id]}.png`} alt={`${pokemon.name} sprite`} className='details-sprite'/>
@@ -131,8 +119,8 @@ class PokeDetails extends React.Component <MyState, {props}> {
         <div className='poke-stats-style'>
           <div className='poke-stats'>
             <div className='height-weight'>
-              <p className='height'><span>Height:</span> {pokemon.height} units</p>
-              <p className='weight'><span>Weight:</span> {pokemon.weight} units</p>
+              <p className='height'><span>Height:</span> {pokemon.height/10} meters</p>
+              <p className='weight'><span>Weight:</span> {pokemon.weight/10} kilograms</p>
             </div>
             <div className='white-space-deco'>
               <img src={require('../Assets/flat-pokeball.png')} alt='pokeballs' className='small-balls'/>
@@ -163,9 +151,9 @@ class PokeDetails extends React.Component <MyState, {props}> {
             </label>
           </div>
         </div>
-      </>
-        : <Error />}
       </section>
+      : <Error />}
+      </>
     )
   }
 }

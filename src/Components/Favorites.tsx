@@ -17,7 +17,8 @@ const Favorites = ({favoritePokemon}) => {
 
   return(
     <section className='favorite-container'>
-      {mappedPokemon}
+      {mappedPokemon.length > 0 ? mappedPokemon :
+      <p className='nothing-here'>There are no pokemon here. Go add some favorites then come back!</p>}
     </section>
   );
 }

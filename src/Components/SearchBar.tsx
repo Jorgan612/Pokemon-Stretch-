@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import '../CSS/SearchBar.css';
-
 
 type Mystate = {
   value: string
 }
 
-class SearchBar extends React.Component <Mystate,{props} >{
+class SearchBar extends React.Component <Mystate, {props}> {
   state: Mystate = {
     value: '',
   }

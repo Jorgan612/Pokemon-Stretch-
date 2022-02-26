@@ -18,6 +18,7 @@
   width: 20vw;
   background-color: red;
   border: none;
+  border-radius: 17px;
   font-size: 20px;
   font-weight: bolder;
   cursor: pointer;

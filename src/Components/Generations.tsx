@@ -13,5 +13,3 @@ const Generations = ({genName, id}) => {
 }
 
 export default Generations;
-
-

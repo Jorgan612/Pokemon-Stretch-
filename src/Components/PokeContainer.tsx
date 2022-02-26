@@ -7,15 +7,15 @@ import Error from './Error.tsx'
 
 type state = {
   pokemon: Array<{}>,
-  error: string
   filteredPokemon: Array<{}>
+  error: string
 }
 
 class PokeContainer extends React.Component<state, {}> {
   state = {
     pokemon: [],
-    error: '',
     filteredPokemon: [],
+    error: '',
   }
 
   componentDidMount = () => {
@@ -75,7 +75,7 @@ class PokeContainer extends React.Component<state, {}> {
   render() {
     return(
       <div className='poke-container'>
-          <SearchBar searchPokemon={this.searchPokemon}/>
+        <SearchBar searchPokemon={this.searchPokemon}/>
         {this.state.pokemon.length > 0 ? 
         <>
           <section className="pokemon-grid">
