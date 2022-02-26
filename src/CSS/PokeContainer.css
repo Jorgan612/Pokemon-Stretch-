@@ -13,9 +13,15 @@
 .go-back {
   width: 10%;
   height: 5vh;
-  background-color: red;
+  background-color: #d53141;
   border-radius: 17px;
   font-size: 20px;
   font-weight: bolder;
   margin-top: 20px;
+  cursor: pointer;
+}
+
+.go-back:hover {
+  transition: .2s;
+  transform: scale(1.1);
 }
