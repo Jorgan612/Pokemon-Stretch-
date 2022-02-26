@@ -1,6 +1,5 @@
 describe('Favorites Page User Flows', () => {
   beforeEach(() => {
-    // cy.visit('http://localhost:3000/favorites')
      cy.visit('http://localhost:3000')
       .get('[href="/generation-i"]')
       .click()
@@ -11,16 +10,12 @@ describe('Favorites Page User Flows', () => {
       .click()
   });
 
-  // it('should be able to visit the url', () => {
-  //   cy.url()
-  //   .should('eq', 'http://localhost:3000/favorites');
-  // });
-
-  // it('should see a message if there are not any favorited Pokemon', () => {
-  //   cy.get('.nothing-here')
-  //   .contains('There are no pokemon here. Go add some favorites then come back!')
-  //   .should('be.visible')
-  // });
+ it('should be able to see a nav with the app\'s title', () => {
+    cy.get('.nav-div')
+    .get('.title')
+    .contains('Gotta Ketchum All')
+    .should('be.visible')
+  });
 
   it('should see favorited Pokemon cards', () => {
       cy.get('button').contains('Favorites')
@@ -28,4 +23,12 @@ describe('Favorites Page User Flows', () => {
       .url()
       .should('eq', 'http://localhost:3000/favorites');
   });
-})
+
+  it('should see a Home Button and return to landing page', () => {
+    cy.get('[href="/"] > .nav-button').contains('Home')
+    .should('be.visible')
+    .click()
+    .url()
+    .should('eq', 'http://localhost:3000/')
+  });
+});
