@@ -23,7 +23,7 @@ class SearchBar extends React.Component <Mystate, {props}> {
           type='text'
           value={this.state.value}
           onChange={this.handleChange}
-          placeholder='Search Pokemon'
+          placeholder='Search Pokemon by Name'
         />
       </form>
     )

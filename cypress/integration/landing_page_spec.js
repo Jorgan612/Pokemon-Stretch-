@@ -1,5 +1,3 @@
-//Need to switch to intercept testing with stubbing and add fixtures 
-
 describe('Landing Page User Flows', () => {
   beforeEach(() => {
      cy.visit('http://localhost:3000');
@@ -18,7 +16,7 @@ describe('Landing Page User Flows', () => {
   });
 
   it('should have a home button on the nav', () => {
-    cy.get('.nav-div > :nth-child(2) > :nth-child(1)')
+  cy.get('.nav-div > :nth-child(2) > :nth-child(1)')
   .contains('Home')
   .click()
   .should('be.visible')
@@ -31,23 +29,16 @@ describe('Landing Page User Flows', () => {
   .should('be.visible')
   });
 
-  it('should have a search field', () => {
-    cy.get('input')
-    .type('caterpie')
+  it('should see a title asking user to pick a generation', () => {
+    cy.get('.gen-container')
+    .get('.gen-title')
+    .contains('Choose Pokemon Generation')
     .should('be.visible')
-  });
-
-  it('should have a search button', () => {
-    cy.get('.nav-div > :nth-child(2) > :nth-child(4)')
-    .contains('Search')
-    .should('be.visible')
-  });
+  })
 
   it('should be able to click a Pokeball and see a list of a specific generation\'s Pokemon', () => {
     cy.get('[href="/generation-i"]')
     .click()
     .url().should('eq', 'http://localhost:3000/generation-i')
   });
-
-
 });
