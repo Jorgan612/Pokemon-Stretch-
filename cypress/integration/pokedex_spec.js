@@ -1,3 +1,10 @@
+
+describe('Single Pokedex View User Flows', () => {
+  beforeEach(() => {
+    cy.intercept('GET', ' https://pokeapi.co/api/v2/pokemon-species/1/', {fixture: "pokemonObjects.json"})
+     .visit('http://localhost:3000/generation-i/0');   
+  });
+
 describe('Favorites Page User Flows', () => {
   beforeEach(() => {
      cy.visit('http://localhost:3000')
