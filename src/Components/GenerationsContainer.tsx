@@ -1,10 +1,9 @@
 import React from "react";
 import Generations from "./Generations.tsx";
+import AllPokemon from "./AllPokemon.tsx";
 import '../CSS/GenerationContainer.css';
-import SearchBar from "./SearchBar.tsx";
 
-
-const GenerationContainer = ({genInfo}) => {
+const GenerationContainer = ({genInfo, allPoke}) => {
     
   const genList = genInfo.map((gen, index) => {
     return(
@@ -21,6 +20,7 @@ const GenerationContainer = ({genInfo}) => {
       <h2 className="gen-title">Choose Pokemon Generation</h2>
       <section className="gen-list">
         {genList}
+        <AllPokemon allPoke={allPoke}/>
       </section>
     </div>
   )

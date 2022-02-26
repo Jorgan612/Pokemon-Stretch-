@@ -1,17 +1,16 @@
 import '../CSS/App.css';
 import React from 'react';
-import Nav from './Nav.tsx';
-import { fetchGenerationPoke } from '../ApiCalls/apiCalls.tsx'
-import GenerationContainer from '../Components/GenerationsContainer.tsx';
-import PokeContainer from './PokeContainer.tsx'
-import URLParams from './URLParams.tsx';
-import Favorites from './Favorites.tsx';
 import {Routes, Route} from 'react-router-dom'
+import { fetchGenerationPoke } from '../ApiCalls/apiCalls.tsx'
+import Nav from './Nav.tsx';
+import GenerationContainer from './GenerationsContainer.tsx';
+import PokeContainer from './PokeContainer.tsx'
+import PokeDetails from './PokeDetails.tsx';
+import Favorites from './Favorites.tsx';
 import Error from './Error.tsx'
 
-
 type state = {
-  generations: Array<{}>,
+  generations: Array<{}>
   favoritePokemon: Array<{}>
   error: string,
 }
@@ -44,8 +43,9 @@ class App extends React.Component <state, {}> {
           <Nav/>
           <Routes>
             <Route path='/' element={<GenerationContainer genInfo={this.state.generations} />} />
-            <Route path='/:generation' element={<PokeContainer prop={this.state.generations}/>} />
-            <Route path='/:generation/:id' element={<URLParams addFavoritePokemon={this.addFavoritePokemon} favoritePokemon={this.state.favoritePokemon}/>} />
+            <Route path='/all-pokemon' element={<PokeContainer />} />
+            <Route path='/:generation' element={<PokeContainer prop={this.state.generations} />} />
+            <Route path='/:generation/:id' element={<PokeDetails addFavoritePokemon={this.addFavoritePokemon} favoritePokemon={this.state.favoritePokemon}/>} />
             <Route path='/favorites' element={<Favorites favoritePokemon={this.state.favoritePokemon}/>} />
           </Routes>
         </>

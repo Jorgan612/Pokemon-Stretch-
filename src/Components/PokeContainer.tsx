@@ -1,5 +1,6 @@
 import React from 'react'
-import { fetchPokemonByGen } from '../ApiCalls/apiCalls.tsx'
+import { Link } from 'react-router-dom';
+import { fetchPokemonByGen, fetchAllPoke } from '../ApiCalls/apiCalls.tsx'
 import '../CSS/PokeContainer.css'
 import PokeCard from './PokeCard.tsx'
 import SearchBar from './SearchBar.tsx'
@@ -7,23 +8,33 @@ import Error from './Error.tsx'
 
 type state = {
   pokemon: Array<{}>,
-  error: string
   filteredPokemon: Array<{}>
+  error: string
 }
 
-class PokeContainer extends React.Component<state, {}> {
+class PokeContainer extends React.Component<state, { allPoke }> {
   state = {
     pokemon: [],
-    error: '',
     filteredPokemon: [],
+    error: '',
   }
 
   componentDidMount = () => {
-    fetchPokemonByGen(this.interpretNumbers())
-      .then(data => {
-        this.setState({pokemon: data.pokemon_species})
-        this.setState({filteredPokemon: data.pokemon_species})})
-      .catch(error => this.setState({error: error}))
+    const url = window.location.pathname;
+    
+    if(url === '/all-pokemon') {
+      fetchAllPoke()
+        .then(data => {
+          this.setState({pokemon: data.results})
+          this.setState({filteredPokemon: data.results})})
+        .catch(error => this.setState({error: error}))  
+    }else {
+      fetchPokemonByGen(this.interpretNumbers())
+        .then(data => {
+          this.setState({pokemon: data.pokemon_species})
+          this.setState({filteredPokemon: data.pokemon_species})})
+        .catch(error => this.setState({error: error}))
+    }
   }
 
   searchPokemon = (searchQuery) => {
@@ -75,8 +86,13 @@ class PokeContainer extends React.Component<state, {}> {
   render() {
     return(
       <div className='poke-container'>
+        <div className='search-back'>
           <SearchBar searchPokemon={this.searchPokemon}/>
-        {this.state.pokemon.length > 0 ? 
+          <Link to='/'>
+            <button className='go-back'>Go Back</button>
+          </Link>
+        </div>
+        {this.state.filteredPokemon.length > 0 ? 
         <>
           <section className="pokemon-grid">
             {this.listPokemon()}

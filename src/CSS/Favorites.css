@@ -2,4 +2,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
+}
+
+.nothing-here {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  background-color: #bcbcbc;
+  font-size: 20px;
+  font-weight: bolder;
+  width: 50%;
+  height: 5vh;
 }

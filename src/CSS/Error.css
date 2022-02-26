@@ -1,3 +1,23 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .ditto-error {
-  
+  margin-top: 20px;
+  border-radius: 17px;
+  width: 40%;
+}
+
+.oops {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #bcbcbc;
+  border-radius: 17px;
+  width: 30%;
+  height: 5vh;
+  font-size: 20px;
+  font-weight: bolder;
 }
