@@ -98,4 +98,12 @@ describe('Favorites Page User Flows', () => {
     .contains('ID: #1')
     .should('be.visible')
   });
+
+  it('should see a Go Back Button', () => {
+    cy.get('.home').contains('Go Back')    
+    .click()
+    .url()
+    .should('eq', 'http://localhost:3000/generation-i')
+  });
+
 });
