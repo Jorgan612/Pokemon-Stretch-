@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { fetchPokemonByGen } from '../ApiCalls/apiCalls.tsx'
 import '../CSS/PokeContainer.css'
 import PokeCard from './PokeCard.tsx'
@@ -75,8 +76,13 @@ class PokeContainer extends React.Component<state, {}> {
   render() {
     return(
       <div className='poke-container'>
-        <SearchBar searchPokemon={this.searchPokemon}/>
-        {this.state.pokemon.length > 0 ? 
+        <div className='search-back'>
+          <SearchBar searchPokemon={this.searchPokemon}/>
+          <Link to='/'>
+            <button className='go-back'>Go Back</button>
+          </Link>
+        </div>
+        {this.state.filteredPokemon.length > 0 ? 
         <>
           <section className="pokemon-grid">
             {this.listPokemon()}
