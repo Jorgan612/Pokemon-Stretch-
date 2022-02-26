@@ -1,9 +1,8 @@
 import '../CSS/App.css';
 import React from 'react';
 import {Routes, Route} from 'react-router-dom'
-import { fetchGenerationPoke, fetchAllPoke } from '../ApiCalls/apiCalls.tsx'
+import { fetchGenerationPoke } from '../ApiCalls/apiCalls.tsx'
 import Nav from './Nav.tsx';
-import AllPokemon from './AllPokemon.tsx';
 import GenerationContainer from './GenerationsContainer.tsx';
 import PokeContainer from './PokeContainer.tsx'
 import PokeDetails from './PokeDetails.tsx';
