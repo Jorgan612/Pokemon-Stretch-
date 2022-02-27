@@ -20,11 +20,10 @@ Mod 3 Stretch Tech: Gotta Ketchum All!
   - Javascript
   - React
   - Typescript
-  - eslint
-  - node
-  - Atom
-	- WebPack
-	- API 
+  - VScode
+	- PokeApi
+  - React Router v6
+  - Cypress
 
 
 ## Code Architecture
