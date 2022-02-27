@@ -95,16 +95,6 @@ class PokeDetails extends React.Component <state, {props}> {
     return '/' + urlParts.splice(-1)[0];
   }
 
-  whatever = () => {
-    if(this.state.isFavorited) {
-      const disabledButton = <button className='disabled' id={pokemon.name} onClick={event => this.favoritePokemon(event)}>Un-Favorite</button>
-    }else if(window.location.pathname.includes('favorites')) {
-      const disabledButton = <button className='disabled' id={pokemon.name} onClick={event => this.favoritePokemon(event)}>Un-Favorite</button>
-    }else {
-      const favButton = <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
-    }
-  }
-
   render() {
     const pokemon = this.state.pokemon;
     const favButton = <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
@@ -172,4 +162,4 @@ class PokeDetails extends React.Component <state, {props}> {
   }
 }
 
-export default PokeDetails
+export default PokeDetails;

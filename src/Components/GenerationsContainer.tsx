@@ -26,4 +26,4 @@ const GenerationContainer = ({genInfo, allPoke}) => {
   )
 }
 
-export default GenerationContainer
+export default GenerationContainer;

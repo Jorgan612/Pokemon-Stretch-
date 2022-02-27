@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import '../CSS/AllPokemon.css';
 
-const AllPokemon = ({allPoke}) => {
+const AllPokemon = () => {
 
   return(
     <Link to='/all-pokemon' className='generation-card' >
