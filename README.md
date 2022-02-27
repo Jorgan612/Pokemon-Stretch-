@@ -9,19 +9,19 @@ Mod 3 Stretch Tech: Gotta Ketchum All!
   - [Illustrations](#illustrations)
   - [Install + Setup](#set-up)
   - [Contributors](#contributors)
-	- [Wins](#wins)
-	- [Challenges + Improvements](#challenges-+-Improvements)
+  - [Wins](#wins)
+  - [Challenges + Improvements](#challenges-+-Improvements)
   - [Project Specs](#project-specs)
 
 ## Abstract
-	Our goal was to build a React app with Typescript and the PokeApi. Our app allows users to view pokemon by generation or all at once. Users can search for a pokemon by name and their search results will filter in real time. If a user clicks on a pokemon card it will show the user that pokemon's details. Users will also be able to favorite pokemon that will show up on a seperate `favorites` page. 
+Our goal was to build a React app with Typescript and the PokeApi. Our app allows users to view pokemon by generation or all at once. Users can search for a pokemon by name and their search results will filter in real time. If a user clicks on a pokemon card it will show the user that pokemon's details. Users will also be able to favorite pokemon that will show up on a seperate `favorites` page. 
 
 ## Technologies
   - Javascript
   - React
   - Typescript
   - VScode
-	- PokeApi
+  - PokeApi
   - React Router v6
   - Cypress
 
@@ -36,7 +36,7 @@ Use https://gifcap.dev/ to make GIFs
 
 
 ## Install + Setup
-	- Clone this [repo](https://github.com/Jorgan612/Pokemon-Stretch-) to your machine.
+  - Clone this [repo](https://github.com/Jorgan612/Pokemon-Stretch-) to your machine.
   - `cd` into the directory `Pokemon-Stretch-`
   - Run `npm install`
   - Run `npm start`
@@ -50,14 +50,14 @@ Use https://gifcap.dev/ to make GIFs
   - [Enzo Jimenez-Soto](https://github.com/ejimenezsoto)
 
 ## Wins
-	- App styling is on point. 
+  - App styling is on point. 
   - Our app functions the way we intended it to. 
   - Good communication and workflow.  
 
 ## Challenges + Improvements
-	- Learning a new language is difficult. 
-	- Styling on favoriting button within the favorites view is not consistent (but the functionality is there!).
-	- Passing state around makes it difficult to keep track of the data used within different parts of the app.
+  - Learning a new language is difficult. 
+  - Styling on favoriting button within the favorites view is not consistent (but the functionality is there!).
+  - Passing state around makes it difficult to keep track of the data used within different parts of the app.
 
 
 ## Future Iterations
