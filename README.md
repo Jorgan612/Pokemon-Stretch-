@@ -1,5 +1,4 @@
-# Title
-Mod 3 Stretch Tech: Gotta Ketchum All!
+# Mod 3 Stretch Tech: Gotta Ketchum All!
 
 
 ## Table of Contents
