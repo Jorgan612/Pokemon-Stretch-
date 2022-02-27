@@ -34,6 +34,14 @@ class App extends React.Component <state, {}> {
     }
   }
 
+  removeFavoritePokemon = (event) => {
+    const remainingPoke = this.state.favoritePokemon.filter(pokemon => { 
+      return pokemon.name !== event.target.id 
+    })
+
+    this.setState({favoritePokemon: remainingPoke});
+  }
+
   render() {
     return (
       <div className="App">
@@ -45,7 +53,7 @@ class App extends React.Component <state, {}> {
             <Route path='/' element={<GenerationContainer genInfo={this.state.generations} />} />
             <Route path='/all-pokemon' element={<PokeContainer />} />
             <Route path='/:generation' element={<PokeContainer prop={this.state.generations} />} />
-            <Route path='/:generation/:id' element={<PokeDetails addFavoritePokemon={this.addFavoritePokemon} favoritePokemon={this.state.favoritePokemon}/>} />
+            <Route path='/:generation/:id' element={<PokeDetails addFavoritePokemon={this.addFavoritePokemon} removeFavoritePokemon={this.removeFavoritePokemon} favoritePokemon={this.state.favoritePokemon}/>} />
             <Route path='/favorites' element={<Favorites favoritePokemon={this.state.favoritePokemon}/>} />
           </Routes>
         </>

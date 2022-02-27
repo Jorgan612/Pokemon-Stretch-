@@ -30,14 +30,14 @@ type pokemon = {
   id: number
 }
 
-type MyState = {
+type state = {
   pokemon: pokemon,
   isFavorited: boolean
   error: string
 }
 
-class PokeDetails extends React.Component <MyState, {props}> {
-  state: MyState = {
+class PokeDetails extends React.Component <state, {props}> {
+  state = {
     pokemon: {},
     isFavorited: false,
     error: ''
@@ -52,11 +52,11 @@ class PokeDetails extends React.Component <MyState, {props}> {
   displayProperties = (propertyOne, propertyTwo) => {
     if(this.state.pokemon[propertyOne] && propertyOne !== 'moves') {
       return this.state.pokemon[propertyOne].map((property, index) => {
-        return <li key={index}>{property[propertyTwo].name}</li>
+        return <li key={index}>{this.capitalizeName(property[propertyTwo].name)}</li>
       })
     }else if(this.state.pokemon[propertyOne]) {
       return this.state.pokemon[propertyOne].map((property, index) => {
-        return <option value={property[propertyTwo].name} key={index}>{property[propertyTwo].name}</option>
+        return <option value={property[propertyTwo].name} key={index}>{this.capitalizeName(property[propertyTwo].name)}</option>
       })
     }
   }
@@ -67,7 +67,7 @@ class PokeDetails extends React.Component <MyState, {props}> {
     }
   }
 
-  favoritePokemon = () => {
+  favoritePokemon = (event) => {
     const favPoke = {
       ...this.state.pokemon
     }
@@ -76,12 +76,16 @@ class PokeDetails extends React.Component <MyState, {props}> {
       return pokemon.name;
     })
 
+    console.log(window.location.pathname.includes('favorites'))
+
     if(!pokeNames.includes(favPoke.name)) {
       this.props.addFavoritePokemon(favPoke)
       this.setState({isFavorited: true})
+      return true;
     }else {
-      console.log('already here, dingus')
-      return false
+      this.props.removeFavoritePokemon(event)
+      this.setState({isFavorited: false})
+      return false;
     }
   }
   
@@ -91,10 +95,20 @@ class PokeDetails extends React.Component <MyState, {props}> {
     return '/' + urlParts.splice(-1)[0];
   }
 
+  whatever = () => {
+    if(this.state.isFavorited) {
+      const disabledButton = <button className='disabled' id={pokemon.name} onClick={event => this.favoritePokemon(event)}>Un-Favorite</button>
+    }else if(window.location.pathname.includes('favorites')) {
+      const disabledButton = <button className='disabled' id={pokemon.name} onClick={event => this.favoritePokemon(event)}>Un-Favorite</button>
+    }else {
+      const favButton = <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
+    }
+  }
+
   render() {
     const pokemon = this.state.pokemon;
     const favButton = <button className='favorite' onClick={event => this.favoritePokemon(event)}>Favorite</button>
-    const disabledButton = <button className='disabled' onClick={event => this.favoritePokemon(event)}>Un-Favorite</button>
+    const disabledButton = <button className='disabled' id={pokemon.name} onClick={event => this.favoritePokemon(event)}>Un-Favorite</button>
 
     return(
       <>
@@ -108,7 +122,7 @@ class PokeDetails extends React.Component <MyState, {props}> {
             <Link to={{pathname: this.goBack()}} >
               <button className='home'>Go Back</button>
             </Link>
-            {this.state.isFavorited ? disabledButton : favButton}
+            {this.state.isFavorited || window.location.pathname.includes('favorites') ? disabledButton : favButton}
           </div>
           <div className='name-id'>
             <h3 className='name'>{this.capitalizeName(pokemon.name)}</h3>
