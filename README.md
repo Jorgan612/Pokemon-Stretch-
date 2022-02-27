@@ -25,22 +25,27 @@ Our goal was to build a React app with Typescript and the PokeApi. Our app allow
   - Cypress
 
 
-## Code Architecture
 
-![code architecture]('src/Assets/architecture.png')
 
 ## Illustrations
 
-Use https://gifcap.dev/ to make GIFs
+Main page:
+![main-page](https://media.giphy.com/media/QepfVvB6Kq7nCuKuSL/giphy.gif)
 
+Pokemon details:
+![pokemon-details](https://media.giphy.com/media/Ll5UVTEim6MSh5LnlE/giphy.gif)
+
+Search by name:
+![pokemon-search](https://media.giphy.com/media/MKeaRumRqnOPz4ECkT/giphy.gif)
+
+Favorites:
+![Favorite](https://media.giphy.com/media/fwshCmocDsC0quW2PE/giphy.gif)
 
 ## Install + Setup
   - Clone this [repo](https://github.com/Jorgan612/Pokemon-Stretch-) to your machine.
   - `cd` into the directory `Pokemon-Stretch-`
   - Run `npm install`
   - Run `npm start`
-
-
 
 ## Contributors
   - [Jessica Organ](https://github.com/Jorgan612)
