@@ -50,14 +50,20 @@ Use https://gifcap.dev/ to make GIFs
   - [Enzo Jimenez-Soto](https://github.com/ejimenezsoto)
 
 ## Wins
-	- What went well!
-	- Successes
+	- App styling is on point. 
+  - Our app functions the way we intended it to. 
+  - Good communication and workflow.  
 
 ## Challenges + Improvements
-	- What was difficult & how you would like to improve on code/project
-	- Any Bugs
-	- Future Iterations
+	- Learning a new language is difficult. 
+	- Styling on favoriting button within the favorites view is not consistent (but the functionality is there!).
+	- Passing state around makes it difficult to keep track of the data used within different parts of the app.
+
+
+## Future Iterations
+  - Comparison feature to compare type strengths and weaknesses between pokemon.
+  - The ability to search by properties other than name.
 
 
 ## Project Specs
-  - The project spec & rubric can be found [here](insert project spec sheet here)
+  - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-3/stretch.html)
