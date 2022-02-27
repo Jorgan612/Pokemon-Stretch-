@@ -28,6 +28,7 @@ Mod 3 Stretch Tech: Gotta Ketchum All!
 
 ## Code Architecture
 
+![code architecture]('src/Assets/architecture.png')
 
 ## Illustrations
 
@@ -35,12 +36,18 @@ Use https://gifcap.dev/ to make GIFs
 
 
 ## Install + Setup
-	- Install instructions, how to access the website and how to use the website
+	- Clone this [repo](https://github.com/Jorgan612/Pokemon-Stretch-) to your machine.
+  - `cd` into the directory `Pokemon-Stretch-`
+  - Run `npm install`
+  - Run `npm start`
 
 
 
 ## Contributors
-  - [Hayley Dixon](https://github.com/hheyhhay)
+  - [Jessica Organ](https://github.com/Jorgan612)
+  - [Brian Peterson](https://github.com/bpeterson2579)
+  - [Susanna Carey](https://github.com/susannaopal)
+  - [Enzo Jimenez-Soto](https://github.com/ejimenezsoto)
 
 ## Wins
 	- What went well!
