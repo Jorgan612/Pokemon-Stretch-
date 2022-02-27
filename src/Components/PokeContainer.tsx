@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { fetchPokemonByGen, fetchAllPoke } from '../ApiCalls/apiCalls.tsx'
-import '../CSS/PokeContainer.css'
-import PokeCard from './PokeCard.tsx'
-import SearchBar from './SearchBar.tsx'
-import Error from './Error.tsx'
+import { fetchPokemonByGen, fetchAllPoke } from '../ApiCalls/apiCalls.tsx';
+import '../CSS/PokeContainer.css';
+import PokeCard from './PokeCard.tsx';
+import SearchBar from './SearchBar.tsx';
+import Error from './Error.tsx';
 
 type state = {
   pokemon: Array<{}>,
@@ -22,13 +22,13 @@ class PokeContainer extends React.Component<state, { allPoke }> {
   componentDidMount = () => {
     const url = window.location.pathname;
     
-    if(url === '/all-pokemon') {
+    if (url === '/all-pokemon') {
       fetchAllPoke()
         .then(data => {
           this.setState({pokemon: data.results})
           this.setState({filteredPokemon: data.results})})
         .catch(error => this.setState({error: error}))  
-    }else {
+    } else {
       fetchPokemonByGen(this.interpretNumbers())
         .then(data => {
           this.setState({pokemon: data.pokemon_species})
@@ -57,20 +57,20 @@ class PokeContainer extends React.Component<state, { allPoke }> {
       viii: 8
     }
 
-    const location = window.location.href.split('-')[1]
-    const num = romanNumerals[location]
+    const location = window.location.href.split('-')[1];
+    const num = romanNumerals[location];
     return num;
   }
 
   listPokemon = () => {
     const sortedPoke = this.state.pokemon.sort((a, b) => {
-      let urlA = Number(a.url.split('/')[6])
-      let urlB = Number(b.url.split('/')[6])
-      return urlA - urlB
+      let urlA = Number(a.url.split('/')[6]);
+      let urlB = Number(b.url.split('/')[6]);
+      return urlA - urlB;
     })
 
     return sortedPoke.map((pokemon, index) => {
-      const pokeId = pokemon.url.split('/')[6]
+      const pokeId = pokemon.url.split('/')[6];
             
       return (
         <PokeCard 
@@ -105,3 +105,4 @@ class PokeContainer extends React.Component<state, { allPoke }> {
 }
 
 export default PokeContainer;
+

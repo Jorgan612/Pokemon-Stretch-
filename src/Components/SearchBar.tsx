@@ -1,18 +1,18 @@
 import React from "react";
 import '../CSS/SearchBar.css';
 
-type Mystate = {
+type state = {
   value: string
 }
 
-class SearchBar extends React.Component <Mystate, {props}> {
-  state: Mystate = {
+class SearchBar extends React.Component <state, {props}> {
+  state = {
     value: '',
   }
 
   handleChange = async(event) => {
-    await this.setState({value: event.target.value})
-    this.props.searchPokemon(this.state.value)
+    await this.setState({value: event.target.value});
+    this.props.searchPokemon(this.state.value);
   }
 
   render() {
@@ -30,4 +30,4 @@ class SearchBar extends React.Component <Mystate, {props}> {
   }
 }
 
-export default SearchBar
+export default SearchBar;

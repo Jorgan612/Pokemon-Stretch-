@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import '../CSS/Nav.css'
+import '../CSS/Nav.css';
 
-const Nav  = () =>  {
+const Nav = () => {
   return (
     <div className='nav-div'>
       <div>
