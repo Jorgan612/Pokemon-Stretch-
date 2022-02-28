@@ -57,8 +57,8 @@ class PokeContainer extends React.Component<state, { allPoke }> {
       viii: 8
     }
 
-    const location = window.location.href.split('-')[1];
-    const num = romanNumerals[location];
+    const location = window.location.href.split('-');
+    const num = romanNumerals[location[location.length - 1]];
     return num;
   }
 
