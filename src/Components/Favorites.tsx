@@ -11,6 +11,7 @@ const Favorites = ({favoritePokemon}) => {
         sprite={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${[pokemon.id]}.png`}
         key={index}
         id={pokemon.id}
+        favoritePokemon={favoritePokemon}
       />
     )
   })

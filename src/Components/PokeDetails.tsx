@@ -49,6 +49,15 @@ class PokeDetails extends React.Component <state, {props}> {
       .catch(err => this.setState({error: err}))
   }
 
+  checkFavoriting = () => {
+    this.props.favoritePokemon.forEach(poke => {
+      console.log(poke.name, this.state.pokemon.name)
+      if(poke.name === this.state.pokemon.name) {
+        this.setState({isFavorited: true})
+      }
+    })
+  }
+
   displayProperties = (propertyOne, propertyTwo) => {
     if(this.state.pokemon[propertyOne] && propertyOne !== 'moves') {
       return this.state.pokemon[propertyOne].map((property, index) => {
@@ -60,7 +69,7 @@ class PokeDetails extends React.Component <state, {props}> {
       })
     }
   }
-
+  
   capitalizeName = (string) => {
     if(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
@@ -75,8 +84,6 @@ class PokeDetails extends React.Component <state, {props}> {
     const pokeNames = this.props.favoritePokemon.map(pokemon => {
       return pokemon.name;
     })
-
-    console.log(window.location.pathname.includes('favorites'))
 
     if(!pokeNames.includes(favPoke.name)) {
       this.props.addFavoritePokemon(favPoke)
@@ -112,7 +119,7 @@ class PokeDetails extends React.Component <state, {props}> {
             <Link to={{pathname: this.goBack()}} >
               <button className='home'>Go Back</button>
             </Link>
-            {this.state.isFavorited || window.location.pathname.includes('favorites') ? disabledButton : favButton}
+            {this.state.isFavorited || this.checkFavoriting() ? disabledButton : favButton}
           </div>
           <div className='name-id'>
             <h3 className='name'>{this.capitalizeName(pokemon.name)}</h3>
