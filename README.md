@@ -1,6 +1,6 @@
 # Mod 3 Stretch Tech: Gotta Ketchum All!
 
-Deployed [here](https://gotta-ketchum-all.herokuapp.com/) on Heroku. 
+Visit our deployed app [here](gotta-ketchum-all.surge.sh)
 
 
 ## Table of Contents
